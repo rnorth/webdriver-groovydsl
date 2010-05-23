@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<suiteResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>WebDriverExampleSuite</rootPath>
+    <pageHistoryReference>
+    <name>WebDriverExampleSuite.BbcTest</name>
+    <date>05/23/2010 10:19:12</date>
+    <pageHistoryLink>WebDriverExampleSuite.BbcTest?pageHistory&amp;resultDate=20100523101912</pageHistoryLink>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>1</exceptions>
+    </counts>
+  </pageHistoryReference>
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+
+</suiteResults>
+

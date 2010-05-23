@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>BbcTest</rootPath>
+    <result>
+    <counts>
+      <right>2</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>3</exceptions>
+    </counts>
+    <content><![CDATA[<span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=3592157217434081360>
+<tr><td>import</td>
+</tr>
+<tr><td>webdriver</td>
+</tr>
+</table>
+<br/><div id="test_exceptions1"><H3> <span class="fail">Exceptions</span></H3><br/><a name="scriptTable_1_3"/><b></b><div class="collapse_rim"><div style="float: right;" class="meta"><a href="javascript:expandAll();">Expand All</a> | <a href="javascript:collapseAll();">Collapse All</a></div><a href="javascript:toggleCollapsable('-3011455111279601031');"><img src="/files/images/collapsableClosed.gif" class="left" id="img-3011455111279601031"/></a>&nbsp;<span class="meta">scriptTable_1_3 </span>
+
+	<div class="hidden" id="-3011455111279601031"><pre>__EXCEPTION__:org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"blq-search-btn"}
+System info: os.name: 'Mac OS X', os.arch: 'i386', os.version: '10.6.3', java.version: '1.6.0_20'
+Driver info: driver.version: firefox
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.firefox.Response.ifNecessaryThrow(Response.java:105)
+	at org.openqa.selenium.firefox.FirefoxDriver.sendMessage(FirefoxDriver.java:296)
+	at org.openqa.selenium.firefox.FirefoxDriver.sendMessage(FirefoxDriver.java:290)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElement(FirefoxDriver.java:249)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElementById(FirefoxDriver.java:177)
+	at org.openqa.selenium.By$1.findElement(By.java:65)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElement(FirefoxDriver.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:229)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at webdriver.SlimWebDriver.clicks(SlimWebDriver.groovy:43)
+	at webdriver.SlimWebDriver$clicks.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1.run(Script1.groovy:1)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:504)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:542)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:513)
+	at groovy.util.Eval.me(Eval.java:50)
+	at groovy.util.Eval.x(Eval.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:86)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:234)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite$StaticMetaMethodSiteNoUnwrap.invoke(StaticMetaMethodSite.java:130)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:47)
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:31)
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:87)
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:155)
+	at fitnesse.slim.Statement.callMethodAtIndex(Statement.java:99)
+	at fitnesse.slim.Statement.call(Statement.java:92)
+	at fitnesse.slim.Statement.execute(Statement.java:72)
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:36)
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:93)
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:78)
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69)
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55)
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:30)
+	at fitnesse.socketservice.SocketService$ServerRunner.run(SocketService.java:95)
+	at java.lang.Thread.run(Thread.java:637)
+</pre></div>
+</div><a name="scriptTable_1_2"/><b></b><div class="collapse_rim"><div style="float: right;" class="meta"><a href="javascript:expandAll();">Expand All</a> | <a href="javascript:collapseAll();">Collapse All</a></div><a href="javascript:toggleCollapsable('1870318602178136328');"><img src="/files/images/collapsableClosed.gif" class="left" id="img1870318602178136328"/></a>&nbsp;<span class="meta">scriptTable_1_2 </span>
+
+	<div class="hidden" id="1870318602178136328"><pre>__EXCEPTION__:org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"blq-search"}
+System info: os.name: 'Mac OS X', os.arch: 'i386', os.version: '10.6.3', java.version: '1.6.0_20'
+Driver info: driver.version: firefox
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.firefox.Response.ifNecessaryThrow(Response.java:105)
+	at org.openqa.selenium.firefox.FirefoxDriver.sendMessage(FirefoxDriver.java:296)
+	at org.openqa.selenium.firefox.FirefoxDriver.sendMessage(FirefoxDriver.java:290)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElement(FirefoxDriver.java:249)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElementById(FirefoxDriver.java:177)
+	at org.openqa.selenium.By$1.findElement(By.java:65)
+	at org.openqa.selenium.firefox.FirefoxDriver.findElement(FirefoxDriver.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:229)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at webdriver.SlimWebDriver.types(SlimWebDriver.groovy:38)
+	at webdriver.SlimWebDriver$types.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at Script1.run(Script1.groovy:1)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:504)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:542)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:513)
+	at groovy.util.Eval.me(Eval.java:50)
+	at groovy.util.Eval.x(Eval.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:86)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:234)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite$StaticMetaMethodSiteNoUnwrap.invoke(StaticMetaMethodSite.java:130)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:47)
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:31)
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:87)
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:155)
+	at fitnesse.slim.Statement.callMethodAtIndex(Statement.java:99)
+	at fitnesse.slim.Statement.call(Statement.java:92)
+	at fitnesse.slim.Statement.execute(Statement.java:72)
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:36)
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:93)
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:78)
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69)
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55)
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:30)
+	at fitnesse.socketservice.SocketService$ServerRunner.run(SocketService.java:95)
+	at java.lang.Thread.run(Thread.java:637)
+</pre></div>
+</div><a name="scriptTable_1_1"/><b></b><div class="collapse_rim"><div style="float: right;" class="meta"><a href="javascript:expandAll();">Expand All</a> | <a href="javascript:collapseAll();">Collapse All</a></div><a href="javascript:toggleCollapsable('-5317401262148636627');"><img src="/files/images/collapsableClosed.gif" class="left" id="img-5317401262148636627"/></a>&nbsp;<span class="meta">scriptTable_1_1 </span>
+
+	<div class="hidden" id="-5317401262148636627"><pre>__EXCEPTION__:org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+Script1.groovy: 1: unexpected char: 0xFFFF @ line 1, column 76.
+   /'">http://www.bbc.co.uk/'</a>
+                                 ^
+
+1 error
+
+	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:296)
+	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:143)
+	at org.codehaus.groovy.control.ErrorCollector.addError(ErrorCollector.java:113)
+	at org.codehaus.groovy.control.ErrorCollector.addError(ErrorCollector.java:125)
+	at org.codehaus.groovy.control.SourceUnit.addError(SourceUnit.java:353)
+	at org.codehaus.groovy.antlr.AntlrParserPlugin.transformCSTIntoAST(AntlrParserPlugin.java:97)
+	at org.codehaus.groovy.antlr.AntlrParserPlugin.parseCST(AntlrParserPlugin.java:69)
+	at org.codehaus.groovy.control.SourceUnit.parse(SourceUnit.java:249)
+	at org.codehaus.groovy.control.CompilationUnit$1.call(CompilationUnit.java:155)
+	at org.codehaus.groovy.control.CompilationUnit.applyToSourceUnits(CompilationUnit.java:810)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:470)
+	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:290)
+	at groovy.lang.GroovyShell.parseClass(GroovyShell.java:616)
+	at groovy.lang.GroovyShell.parse(GroovyShell.java:628)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:502)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:542)
+	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:513)
+	at groovy.util.Eval.me(Eval.java:50)
+	at groovy.util.Eval.x(Eval.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:86)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:234)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite$StaticMetaMethodSiteNoUnwrap.invoke(StaticMetaMethodSite.java:130)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:47)
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:31)
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:87)
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18)
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:155)
+	at fitnesse.slim.Statement.callMethodAtIndex(Statement.java:99)
+	at fitnesse.slim.Statement.call(Statement.java:92)
+	at fitnesse.slim.Statement.execute(Statement.java:72)
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:36)
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:93)
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:78)
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69)
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55)
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:30)
+	at fitnesse.socketservice.SocketService$ServerRunner.run(SocketService.java:95)
+	at java.lang.Thread.run(Thread.java:637)
+</pre></div>
+</div></div><hr/><table border="1" cellspacing="0" _TABLENUMBER=8567245710867777905>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>start</td>
+<td><span class="pass">Slim Web Driver</span></td>
+</tr>
+<tr><td>user</td>
+<td>navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a></td>
+</tr>
+<tr><td>user</td>
+<td>types 'cameron', into:'blq-search'</td>
+</tr>
+<tr><td>user</td>
+<td>clicks on:'blq-search-btn'</td>
+</tr>
+<tr><td><span class="pass">page</span></td>
+<td>contains text:'clegg'</td>
+</tr>
+<tr><td>show</td>
+<td>screenshot</td>
+<TD>http://static.bbc.co.uk/frameworks/barlesque/1.0.3/newnav/img/blocks.png</TD></tr>
+</table>
+<br/>The page contains the right text<br/><br/><table border="1" cellspacing="0" _TABLENUMBER=3310957555768663160>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>page</td>
+<td>contains text:'clegg'; println "multiline fun"</td>
+</tr>
+</table>
+]]></content>
+    <relativePageName>BbcTest</relativePageName>
+    
+        <tables>
+            <table>
+        <name>import_0</name>
+                <row>
+                    <col><![CDATA[import]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[webdriver]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_1</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[start]]></col>
+                    <col><![CDATA[pass(Slim Web Driver)]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[types 'cameron', into:'blq-search']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[clicks on:'blq-search-btn']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[pass(page)]]></col>
+                    <col><![CDATA[contains text:'clegg']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[show]]></col>
+                    <col><![CDATA[screenshot]]></col>
+                    <col><![CDATA[http://static.bbc.co.uk/frameworks/barlesque/1.0.3/newnav/img/blocks.png]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_2</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[page]]></col>
+                    <col><![CDATA[contains text:'clegg'; println "multiline fun"]]></col>
+          
+        </row>
+        
+      </table>
+      
+    </tables>
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_0, import, webdriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_0, make, scriptTableActor, SlimWebDriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+                <expectation>
+          <status>right</status>
+          <instructionId>scriptTable_1_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[OK]]></actual>
+                              <expected><![CDATA[Slim Web Driver]]></expected>
+                              <evaluationMessage><![CDATA[pass(Slim Web Driver)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_1, call, scriptTableActor, user, navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>]]]></instruction>
+        <slimResult><![CDATA[Exception: <a href=#scriptTable_1_1>scriptTable_1_1</a>]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_1</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_1</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[Exception: <a href=#scriptTable_1_1>scriptTable_1_1</a>]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_2, call, scriptTableActor, user, types 'cameron', into:'blq-search']]]></instruction>
+        <slimResult><![CDATA[Exception: <a href=#scriptTable_1_2>scriptTable_1_2</a>]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_2</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_2</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[Exception: <a href=#scriptTable_1_2>scriptTable_1_2</a>]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_3, call, scriptTableActor, user, clicks on:'blq-search-btn']]]></instruction>
+        <slimResult><![CDATA[Exception: <a href=#scriptTable_1_3>scriptTable_1_3</a>]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_3</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_3</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[Exception: <a href=#scriptTable_1_3>scriptTable_1_3</a>]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_4, call, scriptTableActor, page, contains text:'clegg']]]></instruction>
+        <slimResult><![CDATA[true]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_4</instructionId>
+          <col>1</col>
+          <row>5</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>right</status>
+          <instructionId>scriptTable_1_4</instructionId>
+          <col>0</col>
+          <row>5</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[true]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[pass(page)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_5, call, scriptTableActor, screenshot]]]></instruction>
+        <slimResult><![CDATA[http://static.bbc.co.uk/frameworks/barlesque/1.0.3/newnav/img/blocks.png]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_5</instructionId>
+          <col>0</col>
+          <row>6</row>
+          <type>ShowActionExpectation</type>
+                    <actual><![CDATA[http://static.bbc.co.uk/frameworks/barlesque/1.0.3/newnav/img/blocks.png]]></actual>
+                              <expected><![CDATA[show]]></expected>
+                              <evaluationMessage><![CDATA[show]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_2_0, call, scriptTableActor, page, contains text:'clegg'; println "multiline fun"]]]></instruction>
+        <slimResult><![CDATA[null]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[null]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+  
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  
+</testResults>
+

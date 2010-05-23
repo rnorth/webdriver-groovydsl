@@ -1,0 +1,11 @@
+
+|script|
+|user|navigates to:!-"http://www.bbc.co.uk/"-!|
+|user|types 'news', into:'blq-search'|
+|user|clicks on:'blq-search-btn'|
+|page|contains text:'news'|
+
+The page contains the right text
+
+|script|
+|page|contains text:'news'; println "multiline fun"|

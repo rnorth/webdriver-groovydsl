@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>BbcTest</rootPath>
+    <result>
+    <counts>
+      <right>2</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <content><![CDATA[<br/><div class="setup">
+	<div style="float: right;" class="meta"><a href="javascript:expandAll();">Expand All</a> | <a href="javascript:collapseAll();">Collapse All</a></div>
+	<a href="javascript:toggleCollapsable('7087315750054201263');">
+		<img src="/files/images/collapsableClosed.gif" class="left" id="img7087315750054201263"/>
+	</a>
+&nbsp;<span class="meta">Set Up: <a href="WebDriverExampleSuite.SetUp">.WebDriverExampleSuite.SetUp</a> <a href="WebDriverExampleSuite.SetUp?edit&amp;redirectToReferer=true&amp;redirectAction=">(edit)</a></span>
+	<div class="hidden" id="7087315750054201263"><span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=5541427931599073607>
+<tr><td>import</td>
+</tr>
+<tr><td>webdriver</td>
+</tr>
+</table>
+<br/><table border="1" cellspacing="0" _TABLENUMBER=4987582541331253041>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>start</td>
+<td><span class="pass">Slim Web Driver</span></td>
+</tr>
+</table>
+</div>
+</div>
+<br/><table border="1" cellspacing="0" _TABLENUMBER=1049670924987564597>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>user</td>
+<td>navigates to:"http://www.bbc.co.uk/"</td>
+</tr>
+<tr><td>user</td>
+<td>types 'news', into:'blq-search'</td>
+</tr>
+<tr><td>user</td>
+<td>clicks on:'blq-search-btn'</td>
+</tr>
+<tr><td><span class="pass">page</span></td>
+<td>contains text:'news'</td>
+</tr>
+</table>
+<br/>The page contains the right text<br/><br/><table border="1" cellspacing="0" _TABLENUMBER=1161842384362566506>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>page</td>
+<td>contains text:'news'; println "multiline fun"</td>
+</tr>
+</table>
+]]></content>
+    <relativePageName>BbcTest</relativePageName>
+    
+        <tables>
+            <table>
+        <name>import_0</name>
+                <row>
+                    <col><![CDATA[import]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[webdriver]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_1</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[start]]></col>
+                    <col><![CDATA[pass(Slim Web Driver)]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_2</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[navigates to:"http://www.bbc.co.uk/"]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[types 'news', into:'blq-search']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[clicks on:'blq-search-btn']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[pass(page)]]></col>
+                    <col><![CDATA[contains text:'news']]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_3</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[page]]></col>
+                    <col><![CDATA[contains text:'news'; println "multiline fun"]]></col>
+          
+        </row>
+        
+      </table>
+      
+    </tables>
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_0, import, webdriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_0, make, scriptTableActor, SlimWebDriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+                <expectation>
+          <status>right</status>
+          <instructionId>scriptTable_1_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[OK]]></actual>
+                              <expected><![CDATA[Slim Web Driver]]></expected>
+                              <evaluationMessage><![CDATA[pass(Slim Web Driver)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_2_0, call, scriptTableActor, user, navigates to:"http://www.bbc.co.uk/"]]]></instruction>
+        <slimResult><![CDATA[/__VOID__/]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[/__VOID__/]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_2_1, call, scriptTableActor, user, types 'news', into:'blq-search']]]></instruction>
+        <slimResult><![CDATA[/__VOID__/]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_1</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_1</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[/__VOID__/]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_2_2, call, scriptTableActor, user, clicks on:'blq-search-btn']]]></instruction>
+        <slimResult><![CDATA[/__VOID__/]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_2</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_2</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[/__VOID__/]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_2_3, call, scriptTableActor, page, contains text:'news']]]></instruction>
+        <slimResult><![CDATA[true]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_2_3</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>right</status>
+          <instructionId>scriptTable_2_3</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[true]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[pass(page)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_3_0, call, scriptTableActor, page, contains text:'news'; println "multiline fun"]]]></instruction>
+        <slimResult><![CDATA[null]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_3_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_3_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[null]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+  
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  
+</testResults>
+

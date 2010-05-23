@@ -1,0 +1,7 @@
+!define TEST_SYSTEM {slim}
+
+|import|
+|webdriver|
+
+|script|
+|start|Slim Web Driver|

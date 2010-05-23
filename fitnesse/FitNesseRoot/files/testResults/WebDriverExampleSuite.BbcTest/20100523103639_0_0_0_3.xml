@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>BbcTest</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>3</exceptions>
+    </counts>
+    <content><![CDATA[<span class="meta">variable defined: TEST_SYSTEM=fit</span><br/><br/><table border="1" cellspacing="0">
+<tr><td class="error">import<hr/> <span class="fit_label">Could not find fixture: import.</span></td>
+</tr>
+<tr><td>webdriver</td>
+</tr>
+<tr><td>fitnesse.slim.test</td>
+</tr>
+<tr><td>fitnesse.fixtures</td>
+</tr>
+</table>
+<br/><table border="1" cellspacing="0">
+<tr><td class="error">start<hr/> <span class="fit_label">Could not find fixture: start.</span></td>
+<td>Slim Web Driver</td>
+</tr>
+<tr><td>user</td>
+<td>navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a></td>
+</tr>
+<tr><td>user</td>
+<td>types 'cameron', into:'blq-search'</td>
+</tr>
+<tr><td>user</td>
+<td>clicks on:'blq-search-btn'</td>
+</tr>
+<tr><td>page</td>
+<td>contains text:'clegg'</td>
+</tr>
+<tr><td>show</td>
+<td>screenshot</td>
+</tr>
+</table>
+<br/>The page contains the right text<br/><br/><table border="1" cellspacing="0">
+<tr><td class="error">page<hr/> <span class="fit_label">Could not find fixture: page.</span></td>
+<td>contains text:'clegg'; println "multiline fun"</td>
+</tr>
+</table>
+]]></content>
+    <relativePageName>BbcTest</relativePageName>
+    
+    
+    
+  </result>
+  
+  
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  
+</testResults>
+

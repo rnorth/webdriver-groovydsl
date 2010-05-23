@@ -1,0 +1,3 @@
+!path ../target/dependency/*.jar
+!path ../target/webdriver*.jar
+!define TEST_SYSTEM {slim} 

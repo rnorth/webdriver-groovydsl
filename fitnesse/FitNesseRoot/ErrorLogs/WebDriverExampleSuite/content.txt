@@ -1,0 +1,6 @@
+!3 !-slim-!
+|'''Date: '''|!-10:19:59 AM (BST) on Sunday, May 23, 2010-!|
+|'''Test Page: '''|.WebDriverExampleSuite|
+|'''Command: '''|!-java -cp fitnesse.jar:../target/dependency:/Users/richardnorth/workspace/webdriver-slimfixture/fitnesse/../target/webdriver-slimfixture-0.0.1-SNAPSHOT.jar fitnesse.slim.SlimService  8086-!|
+|'''Exit code: '''|!-0-!|
+|'''Time elapsed: '''|!-0.795 seconds-!|

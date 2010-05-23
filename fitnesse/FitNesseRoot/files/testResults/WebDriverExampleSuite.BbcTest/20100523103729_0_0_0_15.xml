@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>BbcTest</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>15</exceptions>
+    </counts>
+    <content><![CDATA[<span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=7670258804042705881>
+<tr><td>import</td>
+</tr>
+<tr><td>webdriver</td>
+</tr>
+<tr><td>fitnesse.slim.test</td>
+</tr>
+<tr><td>fitnesse.fixtures</td>
+</tr>
+</table>
+<br/><div id="test_exceptions1"><H3> <span class="fail">Exceptions</span></H3><br/><a name="scriptTable_1_0"/><b></b><div class="collapse_rim"><div style="float: right;" class="meta"><a href="javascript:expandAll();">Expand All</a> | <a href="javascript:collapseAll();">Collapse All</a></div><a href="javascript:toggleCollapsable('1067183092939575636');"><img src="/files/images/collapsableClosed.gif" class="left" id="img1067183092939575636"/></a>&nbsp;<span class="meta">scriptTable_1_0 </span>
+
+	<div class="hidden" id="1067183092939575636"><pre>__EXCEPTION__:java.lang.NoClassDefFoundError: groovy/lang/GroovyObject
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:632)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:616)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:58)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:248)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:169)
+	at fitnesse.slim.StatementExecutor.getClass(StatementExecutor.java:136)
+	at fitnesse.slim.StatementExecutor.searchPathsForClass(StatementExecutor.java:127)
+	at fitnesse.slim.StatementExecutor.createInstanceOfConstructor(StatementExecutor.java:111)
+	at fitnesse.slim.StatementExecutor.create(StatementExecutor.java:85)
+	at fitnesse.slim.Statement.createInstance(Statement.java:88)
+	at fitnesse.slim.Statement.execute(Statement.java:68)
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:36)
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:93)
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:78)
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69)
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55)
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:30)
+	at fitnesse.socketservice.SocketService$ServerRunner.run(SocketService.java:95)
+	at java.lang.Thread.run(Thread.java:637)
+Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:248)
+	... 28 more
+</pre></div>
+</div></div><hr/><table border="1" cellspacing="0" _TABLENUMBER=838692733189254307>
+<tr><td colspan="2">script</td>
+</tr>
+<tr><td>start</td>
+<td>!style_error(Unknown construction message:) Exception: <a href=#scriptTable_1_0>scriptTable_1_0</a></td>
+</tr>
+<tr><td>user <span class="error">The instance scriptTableActor. does not exist</span></td>
+<td>navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a></td>
+</tr>
+<tr><td>user <span class="error">The instance scriptTableActor. does not exist</span></td>
+<td>types 'cameron', into:'blq-search'</td>
+</tr>
+<tr><td>user <span class="error">The instance scriptTableActor. does not exist</span></td>
+<td>clicks on:'blq-search-btn'</td>
+</tr>
+<tr><td>page <span class="error">The instance scriptTableActor. does not exist</span></td>
+<td>contains text:'clegg'</td>
+</tr>
+<tr><td>show <span class="error">The instance scriptTableActor. does not exist</span></td>
+<td>screenshot</td>
+</tr>
+</table>
+<br/>The page contains the right text<br/><br/><table border="1" cellspacing="0" _TABLENUMBER=6909458019696803394>
+<tr><td>page <span class="error">Could not invoke constructor for page[1]</span></td>
+<td>contains text:'clegg'; println "multiline fun" <span class="error">The instance decisionTable_2. does not exist</span></td>
+</tr>
+</table>
+]]></content>
+    <relativePageName>BbcTest</relativePageName>
+    
+        <tables>
+            <table>
+        <name>import_0</name>
+                <row>
+                    <col><![CDATA[import]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[webdriver]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[fitnesse.slim.test]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[fitnesse.fixtures]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>scriptTable_1</name>
+                <row>
+                    <col><![CDATA[script]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[start]]></col>
+                    <col><![CDATA[!style_error(Unknown construction message:) Exception: <a href=#scriptTable_1_0>scriptTable_1_0</a>]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user error(The instance scriptTableActor. does not exist)]]></col>
+                    <col><![CDATA[navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user error(The instance scriptTableActor. does not exist)]]></col>
+                    <col><![CDATA[types 'cameron', into:'blq-search']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user error(The instance scriptTableActor. does not exist)]]></col>
+                    <col><![CDATA[clicks on:'blq-search-btn']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[page error(The instance scriptTableActor. does not exist)]]></col>
+                    <col><![CDATA[contains text:'clegg']]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[show error(The instance scriptTableActor. does not exist)]]></col>
+                    <col><![CDATA[screenshot]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>decisionTable_2</name>
+                <row>
+                    <col><![CDATA[page error(Could not invoke constructor for page[1])]]></col>
+                    <col><![CDATA[contains text:'clegg'; println "multiline fun" error(The instance decisionTable_2. does not exist)]]></col>
+          
+        </row>
+        
+      </table>
+      
+    </tables>
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_0, import, webdriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_1, import, fitnesse.slim.test]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_2, import, fitnesse.fixtures]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_0, make, scriptTableActor, SlimWebDriver]]]></instruction>
+        <slimResult><![CDATA[Exception: <a href=#scriptTable_1_0>scriptTable_1_0</a>]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_0</instructionId>
+          <col>1</col>
+          <row>1</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[Exception: <a href=#scriptTable_1_0>scriptTable_1_0</a>]]></actual>
+                              <expected><![CDATA[Slim Web Driver]]></expected>
+                              <evaluationMessage><![CDATA[!style_error(Unknown construction message:) Exception: <a href=#scriptTable_1_0>scriptTable_1_0</a>]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_1, call, scriptTableActor, user, navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>]]]></instruction>
+        <slimResult><![CDATA[!error:The instance scriptTableActor. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_1</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_1</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[!error:The instance scriptTableActor. does not exist]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user error(The instance scriptTableActor. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_2, call, scriptTableActor, user, types 'cameron', into:'blq-search']]]></instruction>
+        <slimResult><![CDATA[!error:The instance scriptTableActor. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_2</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_2</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[!error:The instance scriptTableActor. does not exist]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user error(The instance scriptTableActor. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_3, call, scriptTableActor, user, clicks on:'blq-search-btn']]]></instruction>
+        <slimResult><![CDATA[!error:The instance scriptTableActor. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_3</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_3</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[!error:The instance scriptTableActor. does not exist]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user error(The instance scriptTableActor. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_4, call, scriptTableActor, page, contains text:'clegg']]]></instruction>
+        <slimResult><![CDATA[!error:The instance scriptTableActor. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_4</instructionId>
+          <col>1</col>
+          <row>5</row>
+          <type>ArgumentExpectation</type>
+                                        <evaluationMessage><![CDATA[]]></evaluationMessage>
+                  </expectation>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_4</instructionId>
+          <col>0</col>
+          <row>5</row>
+          <type>ScriptActionExpectation</type>
+                    <actual><![CDATA[!error:The instance scriptTableActor. does not exist]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page error(The instance scriptTableActor. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[scriptTable_1_5, call, scriptTableActor, screenshot]]]></instruction>
+        <slimResult><![CDATA[!error:The instance scriptTableActor. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>scriptTable_1_5</instructionId>
+          <col>0</col>
+          <row>6</row>
+          <type>ShowActionExpectation</type>
+                    <actual><![CDATA[!error:The instance scriptTableActor. does not exist]]></actual>
+                              <expected><![CDATA[show]]></expected>
+                              <evaluationMessage><![CDATA[show error(The instance scriptTableActor. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_2_0, make, decisionTable_2, page, contains text:'clegg'; println "multiline fun"]]]></instruction>
+        <slimResult><![CDATA[!error:Could not invoke constructor for page[1]]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_2_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[!error:Could not invoke constructor for page[1]]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page error(Could not invoke constructor for page[1])]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_2_1, call, decisionTable_2, table, []]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_2. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_2_1</instructionId>
+          <col>1</col>
+          <row>0</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_2. does not exist]]></actual>
+                              <expected><![CDATA[contains text:'clegg'; println "multiline fun"]]></expected>
+                              <evaluationMessage><![CDATA[contains text:'clegg'; println "multiline fun" error(The instance decisionTable_2. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+  
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  
+</testResults>
+

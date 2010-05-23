@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20100303</FitNesseVersion>
+  <rootPath>BbcTest</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>32</exceptions>
+    </counts>
+    <content><![CDATA[<span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=1660658205780422034>
+<tr><td>import</td>
+</tr>
+<tr><td>webdriver</td>
+</tr>
+<tr><td>fitnesse.slim.test</td>
+</tr>
+<tr><td>fitnesse.fixtures</td>
+</tr>
+</table>
+<br/><table border="1" cellspacing="0" _TABLENUMBER=7087974025299310102>
+<tr><td>start <span class="error">Could not invoke constructor for start[1]</span></td>
+<td>Slim Web Driver <span class="error">The instance decisionTable_1. does not exist</span></td>
+</tr>
+<tr><td>user</td>
+<td>navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a></td>
+</tr>
+<tr><td>user <span class="error">The instance decisionTable_1. does not exist</span></td>
+<td>types 'cameron', into:'blq-search' <span class="error">The instance decisionTable_1. does not exist</span></td>
+</tr>
+<tr><td>user <span class="error">The instance decisionTable_1. does not exist</span></td>
+<td>clicks on:'blq-search-btn' <span class="error">The instance decisionTable_1. does not exist</span></td>
+</tr>
+<tr><td>page <span class="error">The instance decisionTable_1. does not exist</span></td>
+<td>contains text:'clegg' <span class="error">The instance decisionTable_1. does not exist</span></td>
+</tr>
+<tr><td>show <span class="error">The instance decisionTable_1. does not exist</span></td>
+<td>screenshot <span class="error">The instance decisionTable_1. does not exist</span></td>
+</tr>
+</table>
+<br/>The page contains the right text<br/><br/><table border="1" cellspacing="0" _TABLENUMBER=7440058323002003388>
+<tr><td>page <span class="error">Could not invoke constructor for page[1]</span></td>
+<td>contains text:'clegg'; println "multiline fun" <span class="error">The instance decisionTable_2. does not exist</span></td>
+</tr>
+</table>
+]]></content>
+    <relativePageName>BbcTest</relativePageName>
+    
+        <tables>
+            <table>
+        <name>import_0</name>
+                <row>
+                    <col><![CDATA[import]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[webdriver]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[fitnesse.slim.test]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[fitnesse.fixtures]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>decisionTable_1</name>
+                <row>
+                    <col><![CDATA[start error(Could not invoke constructor for start[1])]]></col>
+                    <col><![CDATA[Slim Web Driver error(The instance decisionTable_1. does not exist)]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user]]></col>
+                    <col><![CDATA[navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user error(The instance decisionTable_1. does not exist)]]></col>
+                    <col><![CDATA[types 'cameron', into:'blq-search' error(The instance decisionTable_1. does not exist)]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[user error(The instance decisionTable_1. does not exist)]]></col>
+                    <col><![CDATA[clicks on:'blq-search-btn' error(The instance decisionTable_1. does not exist)]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[page error(The instance decisionTable_1. does not exist)]]></col>
+                    <col><![CDATA[contains text:'clegg' error(The instance decisionTable_1. does not exist)]]></col>
+          
+        </row>
+                <row>
+                    <col><![CDATA[show error(The instance decisionTable_1. does not exist)]]></col>
+                    <col><![CDATA[screenshot error(The instance decisionTable_1. does not exist)]]></col>
+          
+        </row>
+        
+      </table>
+            <table>
+        <name>decisionTable_2</name>
+                <row>
+                    <col><![CDATA[page error(Could not invoke constructor for page[1])]]></col>
+                    <col><![CDATA[contains text:'clegg'; println "multiline fun" error(The instance decisionTable_2. does not exist)]]></col>
+          
+        </row>
+        
+      </table>
+      
+    </tables>
+    
+    
+    <instructions>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_0, import, webdriver]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_1, import, fitnesse.slim.test]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[import_0_2, import, fitnesse.fixtures]]]></instruction>
+        <slimResult><![CDATA[OK]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_0, make, decisionTable_1, start, Slim Web Driver]]]></instruction>
+        <slimResult><![CDATA[!error:Could not invoke constructor for start[1]]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[!error:Could not invoke constructor for start[1]]]></actual>
+                              <expected><![CDATA[start]]></expected>
+                              <evaluationMessage><![CDATA[start error(Could not invoke constructor for start[1])]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_1, call, decisionTable_1, table, [[user, navigates to:'<a href="http://www.bbc.co.uk/'">http://www.bbc.co.uk/'</a>], [user, types 'cameron', into:'blq-search'], [user, clicks on:'blq-search-btn'], [page, contains text:'clegg'], [show, screenshot]]]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_1</instructionId>
+          <col>1</col>
+          <row>0</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[Slim Web Driver]]></expected>
+                              <evaluationMessage><![CDATA[Slim Web Driver error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_2, call, decisionTable_1, reset]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_3, call, decisionTable_1, setUser, user]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_3</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_4, call, decisionTable_1, setNavigatesToAHrefHttpWwwBbcCoUkHttpWwwBbcCoUkA, types 'cameron', into:'blq-search']]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_4</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[types 'cameron', into:'blq-search']]></expected>
+                              <evaluationMessage><![CDATA[types 'cameron', into:'blq-search' error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_5, call, decisionTable_1, execute]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_6, call, decisionTable_1, reset]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_7, call, decisionTable_1, setUser, user]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_7</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[user]]></expected>
+                              <evaluationMessage><![CDATA[user error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_8, call, decisionTable_1, setNavigatesToAHrefHttpWwwBbcCoUkHttpWwwBbcCoUkA, clicks on:'blq-search-btn']]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_8</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[clicks on:'blq-search-btn']]></expected>
+                              <evaluationMessage><![CDATA[clicks on:'blq-search-btn' error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_9, call, decisionTable_1, execute]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_10, call, decisionTable_1, reset]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_11, call, decisionTable_1, setUser, page]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_11</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_12, call, decisionTable_1, setNavigatesToAHrefHttpWwwBbcCoUkHttpWwwBbcCoUkA, contains text:'clegg']]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_12</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[contains text:'clegg']]></expected>
+                              <evaluationMessage><![CDATA[contains text:'clegg' error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_13, call, decisionTable_1, execute]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_14, call, decisionTable_1, reset]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_15, call, decisionTable_1, setUser, show]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_15</instructionId>
+          <col>0</col>
+          <row>5</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[show]]></expected>
+                              <evaluationMessage><![CDATA[show error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_16, call, decisionTable_1, setNavigatesToAHrefHttpWwwBbcCoUkHttpWwwBbcCoUkA, screenshot]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_1_16</instructionId>
+          <col>1</col>
+          <row>5</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_1. does not exist]]></actual>
+                              <expected><![CDATA[screenshot]]></expected>
+                              <evaluationMessage><![CDATA[screenshot error(The instance decisionTable_1. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_1_17, call, decisionTable_1, execute]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_1. does not exist]]></slimResult>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_2_0, make, decisionTable_2, page, contains text:'clegg'; println "multiline fun"]]]></instruction>
+        <slimResult><![CDATA[!error:Could not invoke constructor for page[1]]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_2_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+                    <actual><![CDATA[!error:Could not invoke constructor for page[1]]]></actual>
+                              <expected><![CDATA[page]]></expected>
+                              <evaluationMessage><![CDATA[page error(Could not invoke constructor for page[1])]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+            <instructionResult>
+        <instruction><![CDATA[[decisionTable_2_1, call, decisionTable_2, table, []]]]></instruction>
+        <slimResult><![CDATA[!error:The instance decisionTable_2. does not exist]]></slimResult>
+                <expectation>
+          <status>ignored</status>
+          <instructionId>decisionTable_2_1</instructionId>
+          <col>1</col>
+          <row>0</row>
+          <type>VoidReturnExpectation</type>
+                    <actual><![CDATA[!error:The instance decisionTable_2. does not exist]]></actual>
+                              <expected><![CDATA[contains text:'clegg'; println "multiline fun"]]></expected>
+                              <evaluationMessage><![CDATA[contains text:'clegg'; println "multiline fun" error(The instance decisionTable_2. does not exist)]]></evaluationMessage>
+                  </expectation>
+        
+      </instructionResult>
+      
+    </instructions>
+    
+  </result>
+  
+  
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  
+</testResults>
+
