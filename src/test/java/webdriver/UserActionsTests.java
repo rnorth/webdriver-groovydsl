@@ -2,7 +2,11 @@ package webdriver;
 
 import org.junit.Test;
 
-
+/**
+ * @author richardnorth
+ * (c) Richard North 2010
+ *
+ */
 public class UserActionsTests {
 
 	@Test
