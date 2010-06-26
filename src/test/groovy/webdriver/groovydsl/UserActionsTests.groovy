@@ -2,6 +2,8 @@ package webdriver.groovydsl
 
 import org.junit.Test
 import groovy.time.TimeCategory
+import org.junit.BeforeClass
+import org.junit.AfterClass
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,7 +12,7 @@ import groovy.time.TimeCategory
  * Time: 8:22:26 PM
  * To change this template use File | Settings | File Templates.
  */
-class UserActionsTests {
+class UserActionsTest {
 
     WebDriverDsl dsl = new WebDriverDsl()
 
@@ -81,4 +83,20 @@ class UserActionsTests {
         assert (end - start) > 5000
         assert (end - start) < 10000
     }
+
+	@Test
+	void testComboBox() {
+		dsl.with {
+			navigate to:'http://www.wikipedia.org'
+			page contains:combobox(with:['English','Nederlands'])
+
+			select 'Nederlands', from:combobox(with:['English','Nederlands'])
+			type 'hello world', into:textField(named:'search')
+            click button(named:'go')
+            page contains:text('Hello world-programma')
+
+			navigate to:'http://www.wikipedia.org'
+			select 'English', from:combobox(with:['English','Nederlands'])
+		}
+	}
 }

@@ -43,4 +43,16 @@ class Nouns {
 
         return this.driver.findElement(By.linkText(linkText))
     }
+
+	WebElement combobox(Map args) {
+		println "combobox containing $args.with"
+
+		this.driver.findElements(By.xpath('//select')).find { WebElement comboBox ->
+			def options = comboBox.findElements(By.xpath('./option')).collect {
+				it.getText()
+			}
+
+			if (options.containsAll(args.with)) return comboBox
+		}
+	}
 }

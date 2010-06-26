@@ -2,6 +2,7 @@ package webdriver.groovydsl
 
 import org.openqa.selenium.WebElement
 import groovy.time.TimeDuration
+import org.openqa.selenium.By
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,11 +30,20 @@ class Verbs {
     def page(Map args) {
         if (args.contains) {
             println "checking if page contains $args.contains"
-            return args.contains instanceof WebElement
+            assert args.contains instanceof WebElement
+        } else {
+	        assert false, "Element was not found"
         }
     }
 
 	def after(TimeDuration waitDuration) {
 		Thread.sleep waitDuration.toMilliseconds()
+	}
+
+	def select(Map args, String optionToSelect) {
+		WebElement activeComboBox = args.from
+		activeComboBox.findElements(By.xpath('./option')).find { WebElement option ->
+			if (option.getText()==optionToSelect) option.setSelected()
+		}
 	}
 }

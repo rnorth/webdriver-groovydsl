@@ -21,8 +21,9 @@ class WebDriverDsl {
 
     WebDriverDsl() {
         System.setProperty("webdriver.firefox.useExisting", "true");
-		//driver = new FirefoxDriver()
-        driver = new HtmlUnitDriver()
+		driver = new FirefoxDriver()
+        //driver = new HtmlUnitDriver()
+	    //driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
     }
 
     def run(String script) {
