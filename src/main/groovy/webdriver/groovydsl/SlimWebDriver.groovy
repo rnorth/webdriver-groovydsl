@@ -1,4 +1,4 @@
-package webdriver;
+package webdriver.groovydsl;
 
 import groovy.lang.GroovyShell;
 
@@ -14,8 +14,9 @@ import org.openqa.selenium.firefox.internal.*;
  *
  */
 public class SlimWebDriver {
-
+/*
 	WebDriver driver
+    WebActor actor = new WebActor()
 
 	SlimWebDriver() {
 		//driver = new HtmlUnitDriver()
@@ -26,28 +27,13 @@ public class SlimWebDriver {
 	
 	void user(String command) {
 		
-		Eval.x(this, "x.${command}")
+		Eval.x(actor, "x.${command}")
 		
 		println driver.getTitle()
 	}
 	
 	def assertThat(String command) {
 		return Eval.me(this, "x.${command}") 
-	}
-	
-	void navigates(Map args) {
-		println "Going to $args.to"
-		driver.get args.to
-	}
-	
-	void types(Map args, String text) {
-		println "Typing $text into $args.into"
-		driver.findElement(By.id(args.into)).sendKeys text
-	}
-	
-	void clicks(Map args) {
-		println "Clicking on $args.on"
-		clickable(args.on).submit()
 	}
 	
 	boolean contains(Map args) {
@@ -134,5 +120,5 @@ public class SlimWebDriver {
 			((FirefoxDriver) driver).saveScreenshot(ssFile)
 			println ssFile.getCanonicalPath()
 		}
-	}
+	}*/
 }

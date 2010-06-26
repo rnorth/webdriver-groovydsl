@@ -68,4 +68,9 @@
 			</plugin>
 		</plugins>
 	</build>
+
+    <properties>
+        <file.encoding>UTF-8</file.encoding>
+        
+    </properties>
 </project>
