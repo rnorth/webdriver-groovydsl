@@ -114,4 +114,13 @@ class UserActionsTest {
 
 		println result
 	}
+
+	@Test
+	void testLocationNarrowingRightOf() {
+		dsl.run """
+		   navigate to:'http://www.w3schools.com/html/html_tables.asp'
+
+		   page contains:text('Table', rightOf:text('Oranges'))
+		"""
+	}
 }

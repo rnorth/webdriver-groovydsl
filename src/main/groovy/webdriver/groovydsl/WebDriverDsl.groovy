@@ -20,9 +20,9 @@ class WebDriverDsl implements GroovyInterceptable {
 
     WebDriverDsl() {
         System.setProperty("webdriver.firefox.useExisting", "true");
-		driver = new FirefoxDriver()
+		//driver = new FirefoxDriver()
         //driver = new HtmlUnitDriver()
-	    //driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
+	    driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
     }
 
     synchronized def run(String script) {
