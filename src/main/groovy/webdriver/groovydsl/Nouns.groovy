@@ -33,6 +33,7 @@ class Nouns {
     WebElement text(String searchTerm) {
         println "text $searchTerm"
 
+	    // Inefficient - could search for elements likely to contain text first
         return this.driver.findElements(By.xpath('//*')).find { WebElement it ->
             if (it.text.toLowerCase().contains(searchTerm.toLowerCase())) return it
         }

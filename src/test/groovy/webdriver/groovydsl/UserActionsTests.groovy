@@ -25,50 +25,50 @@ class UserActionsTest {
 
     @Test
     void testTyping() {
-        dsl.with {
+	    dsl.run """
            navigate to:'http://www.wikipedia.org'
            type 'hello world', into:textField(named:'search')
-        }
+        """
     }
 
     @Test
     void testTypingAndClick() {
-        dsl.with {
+	    dsl.run """
            navigate to:'http://www.wikipedia.org'
            type 'hello world', into:textField(named:'search')
            click button(named:'go')
-        }
+        """
     }
 
     @Test
     void testTypingAndClickAndPageContains() {
-        dsl.with {
+	    dsl.run """
            navigate to:'http://www.wikipedia.org'
            type 'hello world', into:textField(named:'search')
            page contains:button(named:'go')
            click button(named:'go')
            page contains:text('Hello World Program')
-        }
+        """
     }
 
     @Test
     void testClickLink() {
-        dsl.with {
+	    dsl.run """
            navigate to:'http://www.google.com'
 
            page contains:link('Advanced Search')
            click link("About Google")              
            page contains:text('Our Company')
-        }
+        """
     }
 
     @Test
     void testMarkedButton() {
-         dsl.with {
+	    dsl.run """
            navigate to:'http://www.google.com'
 
            page contains:button('Google Search')
-         }
+         """
     }
 
     @Test
@@ -86,7 +86,7 @@ class UserActionsTest {
 
 	@Test
 	void testComboBox() {
-		dsl.with {
+		dsl.run """
 			navigate to:'http://www.wikipedia.org'
 			page contains:combobox(with:['English','Nederlands'])
 
@@ -97,6 +97,21 @@ class UserActionsTest {
 
 			navigate to:'http://www.wikipedia.org'
 			select 'English', from:combobox(with:['English','Nederlands'])
-		}
+		"""
+	}
+
+	@Test
+	void testGetLineNumbers() {
+		dsl.run """
+			navigate to:'http://www.wikipedia.org'
+			page contains:text('Wikipedia')
+		"""
+
+		def result = dsl.getExecutionResults()
+		assert result.size() == 2
+
+		assert result[1].verb == 'navigate'
+
+		println result
 	}
 }
