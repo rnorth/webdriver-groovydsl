@@ -21,22 +21,31 @@ class Verbs implements GroovyInterceptable {
     }
 
     def type(Map args, String text) {
-	    this.beforeAction "Typing $text into $args.into"
-        WebElement into = args.into
-        into.sendKeys text
+	    WebElement into = justOne(args.into)
+	    this.beforeAction "Typing $text into $into"
+	    into.sendKeys text
 		this.afterAction()
     }
 
-    def click(WebElement webElement) {
-	    this.beforeAction "Clicking on $webElement"
-        webElement.click()
+    def click(WebElement[] webElements) {
+
+	    def element = justOne(webElements)
+
+	    this.beforeAction "Clicking on $element"
+        element.click()
 		this.afterAction()
     }
 
     def page(Map args) {
         if (args.contains) {
             this.beforeAction "Checking if page contains $args.contains"
-            assert args.contains instanceof WebElement
+            assert args.contains instanceof WebElement[]
+	        assert args.contains.size() > 0
+	        this.afterAction()
+        } else if (args.containsOne) {
+	        this.beforeAction "Checking if page contains one $args.contains"
+            assert args.containsOne instanceof WebElement[]
+	        assert args.containsOne.size() == 1
 	        this.afterAction()
         } else {
 	        this.beforeAction "Checking if page contains element - not found"
@@ -52,13 +61,20 @@ class Verbs implements GroovyInterceptable {
 
 	def select(Map args, String optionToSelect) {
 
-		this.beforeAction "Selecting $optionToSelect from $args.from"
+		WebElement activeComboBox = justOne(args.from)
+		this.beforeAction "Selecting $optionToSelect from $activeComboBox"
 
-		WebElement activeComboBox = args.from
 		activeComboBox.findElements(By.xpath('./option')).find { WebElement option ->
 			if (option.getText()==optionToSelect) option.setSelected()
 		}
 
 		this.afterAction()
+	}
+
+	WebElement justOne(WebElement[] from) {
+		if (from.size() > 1) {
+			throw new ElementLocationException("Ambiguous results - ${from.size()} found!")
+		}
+		return from[0]
 	}
 }

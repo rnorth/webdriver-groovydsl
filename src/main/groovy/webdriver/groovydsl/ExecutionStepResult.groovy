@@ -9,7 +9,7 @@ package webdriver.groovydsl
  */
 
 @Immutable
-class ExecutionStepResult {
+final class ExecutionStepResult {
 	String verb
 	int lineNumber
 	String screenshotFilename

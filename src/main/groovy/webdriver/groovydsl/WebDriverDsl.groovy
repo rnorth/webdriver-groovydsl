@@ -3,6 +3,8 @@ package webdriver.groovydsl
 import org.openqa.selenium.WebDriver
 
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.remote.DesiredCapabilities
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,10 +21,15 @@ class WebDriverDsl implements GroovyInterceptable {
 	static final String AFTER = "AFTER"
 
     WebDriverDsl() {
-        System.setProperty("webdriver.firefox.useExisting", "true");
+        //System.setProperty("webdriver.firefox.useExisting", "true");
 		//driver = new FirefoxDriver()
         //driver = new HtmlUnitDriver()
-	    driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
+	    //driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
+        //driver.setJavascriptEnabled(true)
+
+
+
+
     }
 
     synchronized def run(String script) {
@@ -30,11 +37,14 @@ class WebDriverDsl implements GroovyInterceptable {
 	    executionResults = [:]
 
 	    this.script = script
+	    driver = new RemoteWebDriver(new URL("http://localhost:3001/wd"), DesiredCapabilities.firefox())
+	    driver.manage().deleteAllCookies()
         Eval.x(this, """use(org.codehaus.groovy.runtime.TimeCategory) {
                             x.with {
                                 $script
                             }
                         }""")
+	    driver.close()
     }
 
     WebDriver getDriver() {
@@ -58,7 +68,7 @@ class WebDriverDsl implements GroovyInterceptable {
 		def verbLine = discoverVerbMethod(stacktrace)
 		def scriptLine = discoverScriptLine(stacktrace)
 
-		String screenshotFilename = takeScreenshot()
+		String screenshotFilename = "" //takeScreenshot()
 
 		def lineNumber = scriptLine.getLineNumber() - 3
 		def sourceLine = script.split('\n')[lineNumber]

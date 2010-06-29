@@ -4,6 +4,10 @@ import org.junit.Test
 import groovy.time.TimeCategory
 import org.junit.BeforeClass
 import org.junit.AfterClass
+import org.mortbay.jetty.webapp.WebAppContext
+import org.openqa.selenium.remote.server.DriverServlet
+import org.mortbay.jetty.nio.SelectChannelConnector
+import org.mortbay.jetty.Server
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,6 +19,28 @@ import org.junit.AfterClass
 class UserActionsTest {
 
     WebDriverDsl dsl = new WebDriverDsl()
+	static Server server = new Server()
+
+	@BeforeClass
+	static void startSelServer() {
+		WebAppContext context = new WebAppContext();
+		context.setContextPath("");
+		context.setWar(new File(".").getCanonicalPath());
+		server.addHandler(context);
+
+		context.addServlet(DriverServlet.class, "/wd/*");
+
+		SelectChannelConnector connector = new SelectChannelConnector();
+		connector.setPort(3001);
+		server.addConnector(connector);
+
+		server.start();
+	}
+
+	@AfterClass
+	static void stopSelServer() {
+		server.stop()
+	}
 
     @Test
     void testBasicDsl() {
@@ -47,7 +73,7 @@ class UserActionsTest {
            type 'hello world', into:textField(named:'search')
            page contains:button(named:'go')
            click button(named:'go')
-           page contains:text('Hello World Program')
+           page contains:text('"Hello World" program')
         """
     }
 
@@ -81,7 +107,6 @@ class UserActionsTest {
 
         long end = new Date().getTime()
         assert (end - start) > 5000
-        assert (end - start) < 10000
     }
 
 	@Test
@@ -93,7 +118,7 @@ class UserActionsTest {
 			select 'Nederlands', from:combobox(with:['English','Nederlands'])
 			type 'hello world', into:textField(named:'search')
             click button(named:'go')
-            page contains:text('Hello world-programma')
+            page contains:text('Hello world in verschillende programmeertalen')
 
 			navigate to:'http://www.wikipedia.org'
 			select 'English', from:combobox(with:['English','Nederlands'])
@@ -120,7 +145,21 @@ class UserActionsTest {
 		dsl.run """
 		   navigate to:'http://www.w3schools.com/html/html_tables.asp'
 
-		   page contains:text('Table', rightOf:text('Oranges'))
+		   page contains:text('13%', rightOf:text('Oranges'))
+		   page contains:text('10%', rightOf:text('Other'))
+		   page contains:text('row 1, cell 2', rightOf:text('row 1, cell 1'), below:text('Header 2'))
 		"""
+
+		try {
+			dsl.run """
+			   navigate to:'http://www.w3schools.com/html/html_tables.asp'
+
+			   page contains:text('23%', rightOf:text('Oranges'))
+			"""
+
+			assert false, "Should not reach here - untrue rightOf lookup"
+		} catch (ElementLocationException expectedException) {
+			// swallow
+		}
 	}
 }

@@ -9,7 +9,7 @@
       <ignores>0</ignores>
       <exceptions>7</exceptions>
     </counts>
-    <content><![CDATA[<span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=7336217322030066391>
+    <content><![CDATA[<![CDATA[<![CDATA[<![CDATA[<![CDATA[<![CDATA[<![CDATA[<![CDATA[<span class="meta">variable defined: TEST_SYSTEM=slim</span><br/><br/><table border="1" cellspacing="0" _TABLENUMBER=7336217322030066391>
 <tr><td>import</td>
 </tr>
 <tr><td>webdriver</td>
@@ -43,9 +43,8 @@ Driver info: driver.version: firefox
 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at webdriver.SlimWebDriver.clicks(SlimWebDriver.groovy:43)
-	at webdriver.SlimWebDriver$clicks.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSwebdriver.groovydsl.SlimWebDriveriver.SlimWebDriver.clicks(SlimWebDriver.groovy:43)
+	at webdriver.groovydsl.SlimWebDriver$clicks.call(Unknown Source)
 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
@@ -63,7 +62,7 @@ Driver info: driver.version: firefox
 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:234)
 	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite$StaticMetaMethodSiteNoUnwrap.invoke(StaticMetaMethodSite.java:130)
 	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at org.codehaus.growebdriver.groovydsl.SlimWebDriverstractCallSite.call(AbstractCallSite.java:129)
 	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
@@ -110,8 +109,7 @@ Driver info: driver.version: firefox
 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at webdriver.SlimWebDriver.types(SlimWebDriver.groovy:38)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallwebdriver.groovydsl.Slwebdriver.groovydsl.SlimWebDriverbDriver.types(SlimWebDriver.groovy:38)
 	at webdriver.SlimWebDriver$types.call(Unknown Source)
 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
@@ -130,7 +128,7 @@ Driver info: driver.version: firefox
 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:234)
 	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite$StaticMetaMethodSiteNoUnwrap.invoke(StaticMetaMethodSite.java:130)
 	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at org.cwebdriver.groovydsl.SlimWebDrivercallsite.AbstractCallSite.call(AbstractCallSite.java:129)
 	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
@@ -191,7 +189,7 @@ Script1.groovy: 1: unexpected char: 0xFFFF @ line 1, column 76.
 	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:88)
 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:129)
+	at org.codehaus.groovy.runtime.callswebdriver.groovydsl.SlimWebDriverll(AbstractCallSite.java:129)
 	at webdriver.SlimWebDriver.user(SlimWebDriver.groovy:22)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
@@ -241,7 +239,7 @@ Script1.groovy: 1: unexpected char: 0xFFFF @ line 1, column 76.
 <td>contains text:'clegg'; println "multiline fun" <span class="error">The instance decisionTable_2. does not exist</span></td>
 </tr>
 </table>
-]]></content>
+]]>]]>]]>]]>]]>]]>]]>]]></content>
     <relativePageName>BbcTest</relativePageName>
     
         <tables>
