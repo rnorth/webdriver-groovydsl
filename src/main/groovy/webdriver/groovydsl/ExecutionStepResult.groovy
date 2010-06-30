@@ -12,7 +12,7 @@ package webdriver.groovydsl
 final class ExecutionStepResult {
 	String verb
 	int lineNumber
-	String screenshotFilename
+	String screenshotData
 	String sourceCode
 	String message
 	String when

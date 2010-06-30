@@ -89,28 +89,11 @@ class Nouns {
 			result.addAll context.findElements(By.xpath(xpath)).findAll(findUsingClosure)
 		}
 
-		// The list initially may contain the full depth of each branch to hits
-		//  so narrow by removing parents
-		def parentNodesToRemove = []
-		result.collect {
-
-			//def parent = it.element?.getParentNode()
-			//def parent = it.findElement(By.xpath('..'))
-			def parent = getParentNode(it)
-			parentNodesToRemove.addAll result.findAll {
-					return it == parent 
-			}
-		}
-		result.removeAll(parentNodesToRemove)
-
 		// try and narrow
 		result = narrowUsingClosure.call(result, narrowTerms)
 
 		if (result.size() == 0) {
 			throw new ElementLocationException("Could not find element")
-		} else if (result.size() > 1 ) {
-
-
 		}
 
 		return result
@@ -132,12 +115,6 @@ class Nouns {
 
 			if (options.containsAll(args.with)) return comboBox
 		}
-	}
-
-	def getParentNode(WebElement element) {
-		this.driver.executeScript("""
-		   return arguments[0].parentNode;
-		""",element)
 	}
 
 	def getLocationOfElement(WebElement element) {
@@ -189,8 +166,6 @@ class Nouns {
 						h.offsetHeight""", element)
 		def splitForm = location.split(',').collect { new Integer(it) }
 		[x:splitForm[0],y:splitForm[1],width:splitForm[2],height:splitForm[3]]
-
-		//[x:element.location.x, y:element.location.y, width:element.size.width, height:element.size.height]
 	}
 }
 

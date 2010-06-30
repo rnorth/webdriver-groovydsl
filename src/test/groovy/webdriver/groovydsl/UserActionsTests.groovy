@@ -25,16 +25,17 @@ class UserActionsTest {
 	static void startSelServer() {
 		WebAppContext context = new WebAppContext();
 		context.setContextPath("");
-		context.setWar(new File(".").getCanonicalPath());
+		context.setWar("file:///Users/richardnorth/workspace/webdriver-harness/target/harness-1.0.0-SNAPSHOT.war");
 		server.addHandler(context);
 
-		context.addServlet(DriverServlet.class, "/wd/*");
+		//context.addServlet(DriverServlet.class, "/wd/*");
 
 		SelectChannelConnector connector = new SelectChannelConnector();
 		connector.setPort(3001);
 		server.addConnector(connector);
 
 		server.start();
+		println "Server started"
 	}
 
 	@AfterClass

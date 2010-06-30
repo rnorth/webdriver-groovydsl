@@ -1,3 +1,5 @@
+
+
 package webdriver.groovydsl
 
 import org.openqa.selenium.WebDriver
@@ -5,6 +7,8 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.remote.DesiredCapabilities
+import org.openqa.selenium.TakesScreenshot
+import org.openqa.selenium.OutputType;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,25 +24,16 @@ class WebDriverDsl implements GroovyInterceptable {
 	static final String BEFORE = "BEFORE"
 	static final String AFTER = "AFTER"
 
-    WebDriverDsl() {
-        //System.setProperty("webdriver.firefox.useExisting", "true");
-		//driver = new FirefoxDriver()
-        //driver = new HtmlUnitDriver()
-	    //driver = this.getClass().getClassLoader().loadClass("org.openqa.selenium.htmlunit.HtmlUnitDriver").newInstance()
-        //driver.setJavascriptEnabled(true)
-
-
-
-
-    }
-
     synchronized def run(String script) {
 
 	    executionResults = [:]
 
 	    this.script = script
-	    driver = new RemoteWebDriver(new URL("http://localhost:3001/wd"), DesiredCapabilities.firefox())
-	    driver.manage().deleteAllCookies()
+	    //driver = new RemoteWebDriver(new URL("http://localhost:3001/wd"), DesiredCapabilities.firefox())
+	    
+		driver = new FirefoxDriver()
+		
+		driver.manage().deleteAllCookies()
         Eval.x(this, """use(org.codehaus.groovy.runtime.TimeCategory) {
                             x.with {
                                 $script
@@ -68,7 +63,7 @@ class WebDriverDsl implements GroovyInterceptable {
 		def verbLine = discoverVerbMethod(stacktrace)
 		def scriptLine = discoverScriptLine(stacktrace)
 
-		String screenshotFilename = "" //takeScreenshot()
+		String screenshotData = takeScreenshot()
 
 		def lineNumber = scriptLine.getLineNumber() - 3
 		def sourceLine = script.split('\n')[lineNumber]
@@ -81,7 +76,7 @@ class WebDriverDsl implements GroovyInterceptable {
 		def stepResult = new ExecutionStepResult(
 				verb:verbLine.getMethodName(),
 				lineNumber: lineNumber,
-				screenshotFilename: screenshotFilename,
+				screenshotData: screenshotData,
 				sourceCode: sourceLine,
 				message: message,
 				when:when,
@@ -94,11 +89,7 @@ class WebDriverDsl implements GroovyInterceptable {
 
 	private String takeScreenshot() {
 		def screenshot = "none"
-		if (driver instanceof FirefoxDriver) {
-			File tmpFile = File.createTempFile("webdriver", ".png")
-			((FirefoxDriver) driver).saveScreenshot tmpFile
-			screenshot = tmpFile.getCanonicalPath()
-		}
+		screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64)
 		return screenshot
 	}
 

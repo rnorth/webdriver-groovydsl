@@ -31,6 +31,13 @@
             <artifactId>selenium-server</artifactId>
             <version>2.0a4</version>
         </dependency>
+        <dependency>
+        	<groupId>webdriver.groovydsl</groupId>
+        	<artifactId>harness</artifactId>
+        	<version>1.0.0-SNAPSHOT</version>
+        	<type>war</type>
+        	<scope>test</scope>
+        </dependency>
 	</dependencies>
 
 
