@@ -34,12 +34,15 @@ class WebDriverDsl implements GroovyInterceptable {
 		driver = new FirefoxDriver()
 		
 		driver.manage().deleteAllCookies()
-        Eval.x(this, """use(org.codehaus.groovy.runtime.TimeCategory) {
-                            x.with {
-                                $script
-                            }
-                        }""")
-	    driver.close()
+		try {
+	        Eval.x(this, """use(org.codehaus.groovy.runtime.TimeCategory) {
+	                            x.with {
+	                                $script
+	                            }
+	                        }""")
+		} finally {
+	    	driver.close()
+		}
     }
 
     WebDriver getDriver() {

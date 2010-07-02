@@ -1,11 +1,9 @@
 package webdriver.groovydsl
 
 import org.junit.Test
-import groovy.time.TimeCategory
 import org.junit.BeforeClass
 import org.junit.AfterClass
 import org.mortbay.jetty.webapp.WebAppContext
-import org.openqa.selenium.remote.server.DriverServlet
 import org.mortbay.jetty.nio.SelectChannelConnector
 import org.mortbay.jetty.Server
 
@@ -22,80 +20,68 @@ class UserActionsTest {
 	static Server server = new Server()
 
 	@BeforeClass
-	static void startSelServer() {
+	static void startTestHarnessServer() {
 		WebAppContext context = new WebAppContext();
 		context.setContextPath("");
-		context.setWar("file:///Users/richardnorth/workspace/webdriver-harness/target/harness-1.0.0-SNAPSHOT.war");
+		context.setWar(UserActionsTest.class.getResource("./wars/harness-1.0.0-SNAPSHOT.war").toString());
 		server.addHandler(context);
-
-		//context.addServlet(DriverServlet.class, "/wd/*");
 
 		SelectChannelConnector connector = new SelectChannelConnector();
 		connector.setPort(3001);
 		server.addConnector(connector);
 
 		server.start();
-		println "Server started"
+		println "Test Harness Server started"
 	}
 
 	@AfterClass
-	static void stopSelServer() {
+	static void stopTestHarnessServer() {
 		server.stop()
 	}
 
     @Test
     void testBasicDsl() {
         dsl.run """
-           navigate to:'http://www.wikipedia.org'
+           navigate to:'http://localhost:3001/app/welcome/view'
         """
     }
 
     @Test
     void testTyping() {
 	    dsl.run """
-           navigate to:'http://www.wikipedia.org'
-           type 'hello world', into:textField(named:'search')
+           navigate to:'http://localhost:3001/app/welcome/view'
+           type 'hello world', into:textField(named:'firstName')
         """
     }
 
     @Test
     void testTypingAndClick() {
 	    dsl.run """
-           navigate to:'http://www.wikipedia.org'
-           type 'hello world', into:textField(named:'search')
-           click button(named:'go')
+           navigate to:'http://localhost:3001/app/welcome/view'
+           type 'hello world', into:textField(named:'firstName')
+           click button('Save Changes')
         """
     }
 
     @Test
     void testTypingAndClickAndPageContains() {
 	    dsl.run """
-           navigate to:'http://www.wikipedia.org'
-           type 'hello world', into:textField(named:'search')
-           page contains:button(named:'go')
-           click button(named:'go')
-           page contains:text('"Hello World" program')
+           navigate to:'http://localhost:3001/app/welcome/view'
+           type 'hello world', into:textField(named:'firstName')
+           click button('Save Changes')
+           page contains:text('firstName=hello world')
         """
     }
 
     @Test
     void testClickLink() {
 	    dsl.run """
-           navigate to:'http://www.google.com'
+           navigate to:'http://localhost:3001/app/welcome/view'
 
-           page contains:link('Advanced Search')
-           click link("About Google")              
-           page contains:text('Our Company')
+           page contains:link('Click me!')
+           click link("Click me!")              
+           page contains:text('Link clicked')
         """
-    }
-
-    @Test
-    void testMarkedButton() {
-	    dsl.run """
-           navigate to:'http://www.google.com'
-
-           page contains:button('Google Search')
-         """
     }
 
     @Test
@@ -113,24 +99,22 @@ class UserActionsTest {
 	@Test
 	void testComboBox() {
 		dsl.run """
-			navigate to:'http://www.wikipedia.org'
-			page contains:combobox(with:['English','Nederlands'])
+			navigate to:'http://localhost:3001/app/welcome/view'
+			page contains:combobox(with:['Spring MVC','Struts'])
 
-			select 'Nederlands', from:combobox(with:['English','Nederlands'])
-			type 'hello world', into:textField(named:'search')
-            click button(named:'go')
-            page contains:text('Hello world in verschillende programmeertalen')
-
-			navigate to:'http://www.wikipedia.org'
-			select 'English', from:combobox(with:['English','Nederlands'])
+			select 'Struts', from:combobox(with:['Spring MVC','Struts'], rightOf:text('Skills:'))
+			type 'hello world', into:textField(named:'firstName')
+            click button('Save Changes')
+            page contains:text('firstName=hello world')
+            page contains:text('skill=Struts')
 		"""
 	}
 
 	@Test
 	void testGetLineNumbers() {
 		dsl.run """
-			navigate to:'http://www.wikipedia.org'
-			page contains:text('Wikipedia')
+			navigate to:'http://localhost:3001/app/welcome/view'
+			page contains:text('Test harness')
 		"""
 
 		def result = dsl.getExecutionResults()
@@ -144,21 +128,21 @@ class UserActionsTest {
 	@Test
 	void testLocationNarrowingRightOf() {
 		dsl.run """
-		   navigate to:'http://www.w3schools.com/html/html_tables.asp'
+		   navigate to:'http://localhost:3001/app/welcome/view'
 
-		   page contains:text('13%', rightOf:text('Oranges'))
-		   page contains:text('10%', rightOf:text('Other'))
-		   page contains:text('row 1, cell 2', rightOf:text('row 1, cell 1'), below:text('Header 2'))
+		   page contains:text('200', rightOf:text('Apples'))
+		   page contains:text('60', rightOf:text('Oranges'))
+		   page contains:text('48', rightOf:text('Oranges'), below:text('2010'))
 		"""
 
 		try {
 			dsl.run """
-			   navigate to:'http://www.w3schools.com/html/html_tables.asp'
+			   navigate to:'http://localhost:3001/app/welcome/view'
 
-			   page contains:text('23%', rightOf:text('Oranges'))
+			   page contains:text('48', rightOf:text('Apples'))
 			"""
 
-			assert false, "Should not reach here - untrue rightOf lookup"
+			assert false, "Should not reach here - false rightOf lookup"
 		} catch (ElementLocationException expectedException) {
 			// swallow
 		}

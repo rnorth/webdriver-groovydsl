@@ -43,7 +43,7 @@ class Nouns {
 
 				return (subjectLocation.x >= originLocation.x &&
 						(subjectLocation.x + subjectLocation.width) <= (originLocation.x + originLocation.width) &&
-						subjectLocation.y <= originLocation.y)
+						subjectLocation.y >= originLocation.y)
 			}
 		}
 
@@ -108,13 +108,13 @@ class Nouns {
 	WebElement[] combobox(Map args) {
 		println "combobox containing $args.with"
 
-		this.driver.findElements(By.xpath('//select')).findAll { WebElement comboBox ->
+		return findAll(this.driver, "//select", { WebElement comboBox ->
 			def options = comboBox.findElements(By.xpath('./option')).collect {
 				it.getText()
 			}
 
 			if (options.containsAll(args.with)) return comboBox
-		}
+		}, narrowingClosure, args)
 	}
 
 	def getLocationOfElement(WebElement element) {

@@ -23,6 +23,7 @@ class Verbs implements GroovyInterceptable {
     def type(Map args, String text) {
 	    WebElement into = justOne(args.into)
 	    this.beforeAction "Typing $text into $into"
+		into.clear()
 	    into.sendKeys text
 		this.afterAction()
     }

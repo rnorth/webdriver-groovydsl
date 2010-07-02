@@ -21,23 +21,45 @@
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>jetty</artifactId>
-            <version>6.1.24</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>2.0a4</version>
-        </dependency>
-        <dependency>
-        	<groupId>webdriver.groovydsl</groupId>
-        	<artifactId>harness</artifactId>
-        	<version>1.0.0-SNAPSHOT</version>
-        	<type>war</type>
-        	<scope>test</scope>
-        </dependency>
+
+		<!-- JETTY for test harness -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty</artifactId>
+			<version>7.0.0.pre5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>7.0.0.pre5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-jsp</artifactId>
+			<version>9.1.02.B04.p0</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>7.0.0.pre5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jsp-2.1-jetty</artifactId>
+			<version>7.0.0.pre5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>webdriver.groovydsl</groupId>
+			<artifactId>harness</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>war</type>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 
@@ -58,24 +80,36 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>dependency-maven-plugin</artifactId>
-				<version>1.0</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-dependencies</id>
-						<phase>prepare-package</phase>
+						<id>copy</id>
+						<phase>process-test-resources</phase>
 						<goals>
-							<goal>copy-dependencies</goal>
+							<goal>copy</goal>
 						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>webdriver.groovydsl</groupId>
+									<artifactId>harness</artifactId>
+									<version>1.0.0-SNAPSHOT</version>
+									<type>war</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/test-classes/webdriver/groovydsl/wars
+							</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
 
-    <properties>
-        <file.encoding>UTF-8</file.encoding>
-        
-    </properties>
+	<properties>
+		<file.encoding>UTF-8</file.encoding>
+
+	</properties>
 </project>

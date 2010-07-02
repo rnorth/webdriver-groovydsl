@@ -13,11 +13,9 @@ import groovy.util.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.junit.Test;
-import groovy.time.TimeCategory;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.mortbay.jetty.webapp.WebAppContext;
-import org.openqa.selenium.remote.server.DriverServlet;
 import org.mortbay.jetty.nio.SelectChannelConnector;
 import org.mortbay.jetty.Server;
 
@@ -48,11 +46,11 @@ public class UserActionsTest
         throw new InternalError("Stubbed method");
     }
 
-    static public void startSelServer() {
+    static public void startTestHarnessServer() {
         throw new InternalError("Stubbed method");
     }
 
-    static public void stopSelServer() {
+    static public void stopTestHarnessServer() {
         throw new InternalError("Stubbed method");
     }
 
@@ -73,10 +71,6 @@ public class UserActionsTest
     }
 
     public void testClickLink() {
-        throw new InternalError("Stubbed method");
-    }
-
-    public void testMarkedButton() {
         throw new InternalError("Stubbed method");
     }
 
