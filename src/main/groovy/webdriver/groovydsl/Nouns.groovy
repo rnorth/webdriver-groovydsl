@@ -5,14 +5,16 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.WebDriver
 
 /**
- * Created by IntelliJ IDEA.
- * User: richardnorth
- * Date: Jun 26, 2010
- * Time: 7:31:30 AM
- * To change this template use File | Settings | File Templates.
+ * Nouns used as mixin for WebDriverDsl.
+ * @author Richard North <rich.north@gmail.com>
  */
 class Nouns {
 
+	/**
+	 * Closure used to narrow in on elements; typically used when finding
+	 * any WebElement using the findAll method.
+	 * TODO: Refactor common elements out.
+	 */
 	Closure narrowingClosure = { def listToSearch, Map args ->
 
 		if (args.rightOf) {
@@ -50,27 +52,45 @@ class Nouns {
 		return listToSearch
 	}
 
+	/**
+	 * Find a text input (<INPUT> tag).
+	 * @param args where args.named is the name of the input
+	 */
 	WebElement[] textField(Map args) {
         println "textField named $args.named"
-        return this.driver.findElements(By.name(args.named))
+        return findAll(this.driver,"//input[@name='${args.named}']", null, narrowingClosure, args)
     }
 
+	/**
+	 * Find a button (<INPUT> tag).
+	 * @param args where args.named is the name of the button
+	 */
     WebElement[] button(Map args) {
         println "button named $args.named"
 
-        return this.driver.findElements(By.name(args.named)).findAll {
+		return findAll(this.driver,"//input[@name='${args.named}']", {
 	        it.getAttribute('type') != 'hidden'
-        }
+        }, narrowingClosure, args)
     }
 
-    WebElement[] button(String marked) {
+	/**
+	 * Find a button (<INPUT> tag).
+	 * @param marked The text on the button
+	 * @param args either empty or a map where narrowing terms (e.g. rightOf, below) are specified
+	 */
+    WebElement[] button(Map narrowTerms=[:], String marked) {
         println "button marked $marked"
 
-        return this.driver.findElements(By.xpath('//input')).findAll { WebElement it ->
+		return findAll(this.driver,"//input", { WebElement it ->
              it.value.equalsIgnoreCase(marked)
-        }
+        }, narrowingClosure, narrowTerms)
     }
 
+	/**
+	 * Find text on the page (in any single HTML element).
+	 * @param marked The text to locate
+	 * @param args either empty or a map where narrowing terms (e.g. rightOf, below) are specified
+	 */
     WebElement[] text(Map narrowTerms=[:], String searchTerm) {
 
 	    // Inefficient - could search for elements likely to contain text first
@@ -80,10 +100,49 @@ class Nouns {
 	    }, narrowingClosure, narrowTerms)
 
     }
+	
+	/**
+	 * Find a link on the page
+	 * @param marked The link text to locate
+	 * TODO: replace findElements(By... with findAll call
+	 */
+    WebElement[] link(String linkText) {
+        println "link $linkText"
 
+        return this.driver.findElements(By.linkText(linkText))
+    }
+
+	/**
+	 * Find a combobox/selectable element
+	 * @param args where args.with is a list of known selectable values
+	 */
+	WebElement[] combobox(Map args) {
+		println "combobox containing $args.with"
+
+		return findAll(this.driver, "//select", { WebElement comboBox ->
+			def options = comboBox.findElements(By.xpath('./option')).collect {
+				it.getText()
+			}
+
+			if (options.containsAll(args.with)) return comboBox
+		}, narrowingClosure, args)
+	}
+	
+	/**
+	 * Generic finder method.
+	 * @param context context to search for WebElements; typically a WebDriver or another WebElement
+	 * @param xpath XPath expression to search for
+	 * @param findUsingClosure closure used to filter search results
+	 * @param narrowUsingClosure closure used to further narrow down search results based on relationship with other elements
+	 * @param narrowTerms map of arguments to be passed in to the narrowing closure (e.g. rightOf, below)
+	 */
 	WebElement[] findAll(def context, String xpath, Closure findUsingClosure, Closure narrowUsingClosure, Map narrowTerms) {
 
 		def result = []
+		
+		if (findUsingClosure  == null) {
+			findUsingClosure = { true }
+		}
 
 		if (context instanceof WebDriver) {
 			result.addAll context.findElements(By.xpath(xpath)).findAll(findUsingClosure)
@@ -99,24 +158,11 @@ class Nouns {
 		return result
 	}
 
-    WebElement[] link(String linkText) {
-        println "link $linkText"
-
-        return this.driver.findElements(By.linkText(linkText))
-    }
-
-	WebElement[] combobox(Map args) {
-		println "combobox containing $args.with"
-
-		return findAll(this.driver, "//select", { WebElement comboBox ->
-			def options = comboBox.findElements(By.xpath('./option')).collect {
-				it.getText()
-			}
-
-			if (options.containsAll(args.with)) return comboBox
-		}, narrowingClosure, args)
-	}
-
+	/**
+	 * Get the location of an element on the page (using javascript).
+	 * @param element element to locate
+	 * @return a map containing x, y, width, height in pixels
+	 */
 	def getLocationOfElement(WebElement element) {
 		def location = this.driver.executeScript("""
 				function findPosX(obj)

@@ -16,7 +16,6 @@ import org.mortbay.jetty.Server
  */
 class UserActionsTest {
 
-    WebDriverDsl dsl = new WebDriverDsl()
 	static Server server = new Server()
 
 	@BeforeClass
@@ -41,14 +40,14 @@ class UserActionsTest {
 
     @Test
     void testBasicDsl() {
-        dsl.run """
-           navigate to:'http://localhost:3001/app/welcome/view'
+        WebDriverDsl.run """
+           navigate to:'about:blank'
         """
     }
 
     @Test
     void testTyping() {
-	    dsl.run """
+	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
            type 'hello world', into:textField(named:'firstName')
         """
@@ -56,7 +55,7 @@ class UserActionsTest {
 
     @Test
     void testTypingAndClick() {
-	    dsl.run """
+	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
            type 'hello world', into:textField(named:'firstName')
            click button('Save Changes')
@@ -65,7 +64,7 @@ class UserActionsTest {
 
     @Test
     void testTypingAndClickAndPageContains() {
-	    dsl.run """
+	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
            type 'hello world', into:textField(named:'firstName')
            click button('Save Changes')
@@ -75,7 +74,7 @@ class UserActionsTest {
 
     @Test
     void testClickLink() {
-	    dsl.run """
+	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
 
            page contains:link('Click me!')
@@ -88,7 +87,7 @@ class UserActionsTest {
     void testAfterPause() {
         long start = new Date().getTime()
         
-        dsl.run """
+        WebDriverDsl.run """
             after 5.seconds    
         """
 
@@ -98,7 +97,7 @@ class UserActionsTest {
 
 	@Test
 	void testComboBox() {
-		dsl.run """
+		WebDriverDsl.run """
 			navigate to:'http://localhost:3001/app/welcome/view'
 			page contains:combobox(with:['Spring MVC','Struts'])
 
@@ -112,12 +111,10 @@ class UserActionsTest {
 
 	@Test
 	void testGetLineNumbers() {
-		dsl.run """
+		def result = WebDriverDsl.run("""
 			navigate to:'http://localhost:3001/app/welcome/view'
 			page contains:text('Test harness')
-		"""
-
-		def result = dsl.getExecutionResults()
+		""")
 		assert result.size() == 2
 
 		assert result[1].verb == 'navigate'
@@ -127,7 +124,7 @@ class UserActionsTest {
 
 	@Test
 	void testLocationNarrowingRightOf() {
-		dsl.run """
+		WebDriverDsl.run """
 		   navigate to:'http://localhost:3001/app/welcome/view'
 
 		   page contains:text('200', rightOf:text('Apples'))
@@ -136,7 +133,7 @@ class UserActionsTest {
 		"""
 
 		try {
-			dsl.run """
+			WebDriverDsl.run """
 			   navigate to:'http://localhost:3001/app/welcome/view'
 
 			   page contains:text('48', rightOf:text('Apples'))
