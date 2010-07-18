@@ -43,7 +43,7 @@ class Verbs implements GroovyInterceptable {
     def click(WebElement[] webElements) {
 	    def element = justOne(webElements)
 
-	    this.beforeAction "Clicking", element
+	    this.beforeAction "Clicking ${element.getText()}", element
         element.click()
 		this.afterAction "", element
     }

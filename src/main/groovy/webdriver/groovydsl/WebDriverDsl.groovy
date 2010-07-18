@@ -68,6 +68,19 @@ class WebDriverDsl {
 		new MarkupBuilder(writer).html {
 			head {
 				title("Test results")
+				style(type:'text/css', """
+					td {
+						background-color: #CFC;
+					}
+
+					table {
+						border: 1px solid black;
+					}
+
+					.screenshot {
+						max-width: 500px;
+					}
+				""")
 			}
 			body {
 				table {
@@ -85,7 +98,7 @@ class WebDriverDsl {
 							td(step.getSourceCode().trim())
 							td(step.getMessage().trim())
 							td {
-								img(src:imageFilename)
+								img(class:'screenshot', src:imageFilename)
 							}
 						}
 					}
@@ -172,6 +185,11 @@ class WebDriverDsl {
 		} else {
 			elementScreenshot = executionResults[lineNumber]?.elementScreenshot
 		}
+		
+		if (verbLine.getMethodName() == 'navigate' && when==AFTER) {
+			screenshotData = takeScreenshot()
+			elementScreenshot = saveImage(screenshotData)
+		}
 
 		def stepResult = new ExecutionStepResult(
 				verb: verbLine.getMethodName(),
@@ -192,10 +210,11 @@ class WebDriverDsl {
 	 * @return Base64 encoded screenshot
 	 */
 	private String takeScreenshot() {
-		def screenshot = "none"
+		def screenshot = ""
 		if (driver instanceof TakesScreenshot) {
 			screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64)
 		}
+		
 		return screenshot
 	}
 
@@ -293,9 +312,9 @@ class WebDriverDsl {
    
    BufferedImage crop(BufferedImage image, int left, int top, int width, int height) {
 	   
-	   left = Math.max(0, left-50)
+	   left = 0 //Math.max(0, left-50)
 	   top = Math.max(0, top-50)
-	   width = Math.min(image.getWidth()-left, width+100)
+	   width = image.getWidth() //Math.min(image.getWidth()-left, width+100)
 	   height = Math.min(image.getHeight()-top, height+100)
 	   
 	   image.getSubimage(left, top, width, height)
