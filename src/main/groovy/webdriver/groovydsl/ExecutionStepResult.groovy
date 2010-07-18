@@ -19,6 +19,7 @@ class ExecutionStepResult {
 	String message
 	String when
 	Date timestamp
+	Long duration
 	WebElement element
 	String elementScreenshot
 }

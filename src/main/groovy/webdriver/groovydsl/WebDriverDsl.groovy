@@ -88,6 +88,7 @@ class WebDriverDsl {
 						th("Script")
 						th("Commentary")
 						th("Screenshot")
+						th("Time")
 					}
 					
 					instance.executionResults.each { int line, ExecutionStepResult step ->
@@ -100,6 +101,7 @@ class WebDriverDsl {
 							td {
 								img(class:'screenshot', src:imageFilename)
 							}
+							td(step.duration)
 						}
 					}
 				}
@@ -190,6 +192,11 @@ class WebDriverDsl {
 			screenshotData = takeScreenshot()
 			elementScreenshot = saveImage(screenshotData)
 		}
+		
+		def duration = 0
+		if(executionResults[lineNumber]?.timestamp) {
+			duration = new Date().getTime() - executionResults[lineNumber].timestamp.getTime()
+		}
 
 		def stepResult = new ExecutionStepResult(
 				verb: verbLine.getMethodName(),
@@ -199,6 +206,7 @@ class WebDriverDsl {
 				message: message,
 				when: when,
 				timestamp:new Date(),
+				duration:duration,
 				element:element,
 				elementScreenshot:elementScreenshot)
 
