@@ -25,7 +25,7 @@ class Nouns {
 			listToSearch = listToSearch.findAll {
 				def subjectLocation = getLocationOfElement(it)
 
-				println "Checking that $subjectLocation is right of $originLocation"
+				//println "Checking that $subjectLocation is right of $originLocation"
 
 				subjectLocation.y >= originLocation.y &&
 						(subjectLocation.y + subjectLocation.height) <= (originLocation.y + originLocation.height) &&
@@ -41,7 +41,7 @@ class Nouns {
 			listToSearch = listToSearch.findAll {
 				def subjectLocation = getLocationOfElement(it)
 
-				println "Checking that $subjectLocation is below $originLocation"
+				//println "Checking that $subjectLocation is below $originLocation"
 
 				return (subjectLocation.x >= originLocation.x &&
 						(subjectLocation.x + subjectLocation.width) <= (originLocation.x + originLocation.width) &&
@@ -57,7 +57,7 @@ class Nouns {
 	 * @param args where args.named is the name of the input
 	 */
 	WebElement[] textField(Map args) {
-        println "textField named $args.named"
+        //println "textField named $args.named"
         return findAll(this.driver,"//input[@name='${args.named}']", null, narrowingClosure, args)
     }
 
@@ -66,7 +66,7 @@ class Nouns {
 	 * @param args where args.named is the name of the button
 	 */
     WebElement[] button(Map args) {
-        println "button named $args.named"
+        //println "button named $args.named"
 
 		return findAll(this.driver,"//input[@name='${args.named}']", {
 	        it.getAttribute('type') != 'hidden'
@@ -79,7 +79,7 @@ class Nouns {
 	 * @param args either empty or a map where narrowing terms (e.g. rightOf, below) are specified
 	 */
     WebElement[] button(Map narrowTerms=[:], String marked) {
-        println "button marked $marked"
+        //println "button marked $marked"
 
 		return findAll(this.driver,"//input", { WebElement it ->
              it.value.equalsIgnoreCase(marked)
@@ -107,7 +107,7 @@ class Nouns {
 	 * TODO: replace findElements(By... with findAll call
 	 */
     WebElement[] link(String linkText) {
-        println "link $linkText"
+        //println "link $linkText"
 
         return this.driver.findElements(By.linkText(linkText))
     }
@@ -117,7 +117,7 @@ class Nouns {
 	 * @param args where args.with is a list of known selectable values
 	 */
 	WebElement[] combobox(Map args) {
-		println "combobox containing $args.with"
+		//println "combobox containing $args.with"
 
 		return findAll(this.driver, "//select", { WebElement comboBox ->
 			def options = comboBox.findElements(By.xpath('./option')).collect {

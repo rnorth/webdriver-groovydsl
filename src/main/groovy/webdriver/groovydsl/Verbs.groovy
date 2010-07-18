@@ -29,10 +29,10 @@ class Verbs implements GroovyInterceptable {
     def type(Map args, String text) {
 	    WebElement into = justOne(args.into)
 	
-	    this.beforeAction "Typing $text into $into"
+	    this.beforeAction "Typing $text", into
 		into.clear()
 	    into.sendKeys text
-		this.afterAction()
+		this.afterAction "",into
     }
 
 	/**
@@ -43,9 +43,9 @@ class Verbs implements GroovyInterceptable {
     def click(WebElement[] webElements) {
 	    def element = justOne(webElements)
 
-	    this.beforeAction "Clicking on $element"
+	    this.beforeAction "Clicking", element
         element.click()
-		this.afterAction()
+		this.afterAction "", element
     }
 
 	/**
@@ -55,12 +55,12 @@ class Verbs implements GroovyInterceptable {
 	 */
     def page(Map args) {
         if (args.contains) {
-            this.beforeAction "Checking if page contains $args.contains"
+            this.beforeAction "Checking if page contains element", args.contains[0]
             assert args.contains instanceof WebElement[]
 	        assert args.contains.size() > 0
 	        this.afterAction()
         } else if (args.containsOne) {
-	        this.beforeAction "Checking if page contains one $args.contains"
+	        this.beforeAction "Checking if page contains one element", args.contains[0]
             assert args.containsOne instanceof WebElement[]
 	        assert args.containsOne.size() == 1
 	        this.afterAction()
@@ -88,13 +88,13 @@ class Verbs implements GroovyInterceptable {
 	def select(Map args, String optionToSelect) {
 
 		WebElement activeSelectionBox = justOne(args.from)
-		this.beforeAction "Selecting $optionToSelect from $activeSelectionBox"
+		this.beforeAction "Selecting $optionToSelect", activeSelectionBox
 
 		activeSelectionBox.findElements(By.xpath('./option')).each { WebElement option ->
 			if (option.getText()==optionToSelect) option.setSelected()
 		}
 
-		this.afterAction()
+		this.afterAction "", activeSelectionBox
 	}
 
 	/**

@@ -41,7 +41,7 @@ class UserActionsTest {
     @Test
     void testBasicDsl() {
         WebDriverDsl.run """
-           navigate to:'about:blank'
+           navigate to:'http://localhost:3001/app/welcome/view'
         """
     }
 
