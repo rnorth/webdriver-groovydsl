@@ -27,9 +27,10 @@ class Verbs implements GroovyInterceptable {
 	 * @param args where args.into is the element to have text typed into
 	 */
     def type(Map args, String text) {
+		this.beforeAction "Typing"
 	    WebElement into = justOne(args.into)
-	
 	    this.beforeAction "Typing $text", into
+	
 		into.clear()
 	    into.sendKeys text
 		this.afterAction "",into
@@ -41,9 +42,12 @@ class Verbs implements GroovyInterceptable {
 	 * @throws ElementLocationException if ambiguous elements are passed in
 	 */
     def click(WebElement[] webElements) {
+		
+		this.beforeAction "Clicking"
+		
 	    def element = justOne(webElements)
-
 	    this.beforeAction "Clicking ${element.getText()}", element
+
         element.click()
 		this.afterAction "", element
     }
@@ -54,19 +58,28 @@ class Verbs implements GroovyInterceptable {
 	 *                   args.containsOne is tested to be just one element
 	 */
     def page(Map args) {
+		
+		this.beforeAction "Checking if page contains element"
+		
         if (args.contains) {
             this.beforeAction "Checking if page contains element", args.contains[0]
-            assert args.contains instanceof WebElement[]
-	        assert args.contains.size() > 0
+			
+			if (args.contains.size() == 0) {
+				throw new ElementLocationException("Could not find element")
+			}
+
 	        this.afterAction()
         } else if (args.containsOne) {
 	        this.beforeAction "Checking if page contains one element", args.contains[0]
-            assert args.containsOne instanceof WebElement[]
-	        assert args.containsOne.size() == 1
+            
+			if (args.contains.size() != 1) {
+				throw new ElementLocationException("Expected to find 1 but found ${args.contains.size()}")
+			}
+			
 	        this.afterAction()
         } else {
 	        this.beforeAction "Checking if page contains element - not found"
-	        assert false, "Element was not found"
+	        throw new ElementLocationException("Could not find element")
         }
     }
 
@@ -86,7 +99,7 @@ class Verbs implements GroovyInterceptable {
 	 * @param args where args.from is the multi-option element to select from
 	 */
 	def select(Map args, String optionToSelect) {
-
+		this.beforeAction "Selecting $optionToSelect"
 		WebElement activeSelectionBox = justOne(args.from)
 		this.beforeAction "Selecting $optionToSelect", activeSelectionBox
 
@@ -100,11 +113,11 @@ class Verbs implements GroovyInterceptable {
 	/**
 	 * Ensure that only a single element is passed in.
 	 * @param from an array of WebElements, which is expected to just contain one entry
-	 * @throws ElementLocationException if ambiguous elements are passed in
+	 * @throws ElementLocationException if ambiguous or no elements are passed in
 	 */
 	private WebElement justOne(WebElement[] from) {
 		if (from.size() != 1) {
-			throw new ElementLocationException("Ambiguous results - expected 1 but ${from.size()} found!")
+			throw new ElementLocationException("Unexpected results - expected 1 element but ${from.size()} found!")
 		}
 		return from[0]
 	}

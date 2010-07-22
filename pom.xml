@@ -53,6 +53,7 @@
 			<version>7.0.0.pre5</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>webdriver.groovydsl</groupId>
 			<artifactId>harness</artifactId>
@@ -60,6 +61,7 @@
 			<type>war</type>
 			<scope>test</scope>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.apache.sanselan</groupId>
 			<artifactId>sanselan</artifactId>
@@ -69,6 +71,11 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>20041127.091804</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
 		</dependency>
 	</dependencies>
 
@@ -89,6 +96,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -115,6 +123,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			 -->
 		</plugins>
 	</build>
 

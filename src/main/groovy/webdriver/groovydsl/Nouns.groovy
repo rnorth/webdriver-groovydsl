@@ -58,7 +58,17 @@ class Nouns {
 	 */
 	WebElement[] textField(Map args) {
         //println "textField named $args.named"
-        return findAll(this.driver,"//input[@name='${args.named}']", null, narrowingClosure, args)
+		
+		if (args.labelled) {
+			WebElement label = findAll(this.driver,"//label[contains(text(),'${args.labelled}')]", null, narrowingClosure, [:])[0]
+			
+			String idOfElement = label.getAttribute('for')
+			return findAll(this.driver,"//input[@id='$idOfElement']", null, narrowingClosure, args)
+			
+		} else if (args.named) {
+			return findAll(this.driver,"//input[@name='${args.named}']", null, narrowingClosure, args)
+		}
+		[]
     }
 
 	/**
@@ -92,10 +102,10 @@ class Nouns {
 	 * @param args either empty or a map where narrowing terms (e.g. rightOf, below) are specified
 	 */
     WebElement[] text(Map narrowTerms=[:], String searchTerm) {
-
+		
 	    // Inefficient - could search for elements likely to contain text first
 	    //return findAll(this.driver, '//*[text()]', { WebElement it ->
-		return findAll(this.driver, "//*[contains(text(),'$searchTerm')]", { WebElement it ->
+		return findAll(this.driver, """//*[contains(text(),"$searchTerm")]""", { WebElement it ->
 		    if (it.text.toLowerCase().contains(searchTerm.toLowerCase())) return it
 	    }, narrowingClosure, narrowTerms)
 
@@ -151,9 +161,6 @@ class Nouns {
 		// try and narrow
 		result = narrowUsingClosure.call(result, narrowTerms)
 
-		if (result.size() == 0) {
-			throw new ElementLocationException("Could not find element")
-		}
 
 		return result
 	}

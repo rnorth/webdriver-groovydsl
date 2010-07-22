@@ -17,6 +17,8 @@ import webdriver.groovydsl.ExecutionStepResult
 
 import groovy.xml.MarkupBuilder;
 
+import org.apache.commons.lang.StringUtils
+
 import java.awt.image.BufferedImage;
 
 /**
@@ -50,6 +52,9 @@ class WebDriverDsl {
 		driver.manage().deleteAllCookies()
 		WebDriverDsl instance = new WebDriverDsl(driver, script)
 		
+		Exception exceptionOccurrence = null
+		String failureImageFilename = ""
+		
 		/*
 		 * If the code snippet below is altered, SCRIPT_OFFSET must be updated to match
 		 * the line number that $script appears on.
@@ -60,17 +65,36 @@ class WebDriverDsl {
 		                            	$script
 		                        	}
 		                    	}""")
+		} catch (Exception e) {
+			exceptionOccurrence = e
+			
+			try {
+				failureImageFilename = instance.saveImage(instance.takeScreenshot())
+			} catch(Exception e1) { }
+			
 		} finally {
 	    	driver.close()
 		}
 		
+		StackTraceElement[] stackTrace = new RuntimeException().getStackTrace()
+		StackTraceElement testElement = discoverTestClassName(stackTrace)
+		def className = testElement.getClassName()
+		def testName = testElement.getMethodName()
+		
+		def niceClassName = className //StringUtils.splitByCharacterTypeCamelCase(className).join(' ')
+		def niceTestName = testName //StringUtils.splitByCharacterTypeCamelCase(testName).join(' ')
+		
 		def writer = new StringWriter()
 		new MarkupBuilder(writer).html {
 			head {
-				title("Test results")
+				title("$niceClassName - $niceTestName")
 				style(type:'text/css', """
-					td {
+					tr.success {
 						background-color: #CFC;
+					}
+					
+					tr.failed {
+						background-color: #FCC;
 					}
 
 					table {
@@ -78,39 +102,65 @@ class WebDriverDsl {
 					}
 
 					.screenshot {
-						max-width: 500px;
+						max-width: 100%;
 					}
 				""")
 			}
 			body {
+				h1(niceClassName)
+				h2(niceTestName)
 				table {
 					tr {
 						th("Script")
-						th("Commentary")
 						th("Screenshot")
-						th("Time")
+						th("Duration (ms)")
 					}
 					
 					instance.executionResults.each { int line, ExecutionStepResult step ->
 						
-						def imageFilename = "file://" + step.elementScreenshot
+						def imageFilename = step.elementScreenshot
 						
-						tr {
-							td(step.getSourceCode().trim())
-							td(step.getMessage().trim())
-							td {
-								img(class:'screenshot', src:imageFilename)
+						if(step.when == "AFTER") {
+							tr(class:'success') {
+								td { pre(step.getSourceCode().trim()) }
+								td {
+									img(class:'screenshot', src:imageFilename)
+								}
+								td(step.duration)
 							}
-							td(step.duration)
+						} else {
+							tr(class:'failed') {
+								td { pre(step.getSourceCode().trim())
+									 pre(exceptionOccurrence.toString()) 
+								}
+								td {
+									img(class:'screenshot', src:failureImageFilename)
+								}
+								td(step.duration)
+							}
 						}
 					}
 				}
 			}
 		}
-		File f = File.createTempFile("webdriver-",".html")
-		f << writer.toString()
-		println f.canonicalPath
 		
+		
+		File outputDir = new File("target/webdriver")
+		outputDir.mkdirs()
+		File f = new File("target/webdriver/$className-$testName"+".html")
+		f << writer.toString()
+		
+		if (exceptionOccurrence==null) {
+			println "Success:         $className $testName"
+		} else {
+			println "*** FAILED ***   $className $testName"
+			println "Please check output files at ${f.getCanonicalPath()}\n"
+		}
+		
+		
+		if (exceptionOccurrence!=null) {
+			throw exceptionOccurrence
+		}
 		
 		return instance.executionResults
     }
@@ -183,7 +233,7 @@ class WebDriverDsl {
 		
 		def elementScreenshot = ""
 		if(loc) {
-			elementScreenshot = saveImage(getSubScreenshotData(screenshotData, loc));
+			elementScreenshot = saveImage(getSubScreenshotData(screenshotData, loc))
 		} else {
 			elementScreenshot = executionResults[lineNumber]?.elementScreenshot
 		}
@@ -246,6 +296,12 @@ class WebDriverDsl {
 		stacktrace.find {
 			it.getClassName().startsWith("webdriver.groovydsl.Verbs") && 
 				it.getMethodName() != "invokeMethod"
+		}
+	}
+	
+	private static StackTraceElement discoverTestClassName(StackTraceElement[] stacktrace) {
+		stacktrace.find { 
+			it.getClassName().endsWith("Test") && it.getMethodName().startsWith("test")
 		}
 	}
 	
@@ -328,8 +384,10 @@ class WebDriverDsl {
 	   image.getSubimage(left, top, width, height)
    }
    
-   File saveImage(String base64PngImage) {
-	   File f = File.createTempFile("webdriver-ss-", ".png")
+   String saveImage(String base64PngImage) {
+	   new File("target/webdriver").mkdirs()
+	   File f = new File("target/webdriver/screenshot-"+new Random().nextLong()+".png")
 	   f << Base64.decodeBase64(base64PngImage.getBytes())
+	   f.getName()
    }
 }
