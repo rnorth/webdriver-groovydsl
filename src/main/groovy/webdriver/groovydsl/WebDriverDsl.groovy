@@ -15,7 +15,6 @@ import org.openqa.selenium.StaleElementReferenceException
 
 import webdriver.groovydsl.ExecutionStepResult
 
-import groovy.xml.MarkupBuilder;
 
 import org.apache.commons.lang.StringUtils
 
@@ -40,13 +39,13 @@ class WebDriverDsl {
 	String script
 	Map executionResults = [:]
 	
+	OutputGenerator outputGenerator = new BasicOutputGenerator()
+	
 	/**
 	 * Main entry point.
 	 * @param script Script to run, as a String
 	 */
     static def run(String script) {
-	    
-		//driver = new RemoteWebDriver(new URL("http://localhost:3001/wd"), DesiredCapabilities.firefox())
 
 		WebDriver driver = new FirefoxDriver()
 		driver.manage().deleteAllCookies()
@@ -76,94 +75,12 @@ class WebDriverDsl {
 	    	driver.close()
 		}
 		
-		StackTraceElement[] stackTrace = new RuntimeException().getStackTrace()
-		StackTraceElement testElement = discoverTestClassName(stackTrace)
-		def className = testElement.getClassName()
-		def testName = testElement.getMethodName()
-		
-		def niceClassName = className //StringUtils.splitByCharacterTypeCamelCase(className).join(' ')
-		def niceTestName = testName //StringUtils.splitByCharacterTypeCamelCase(testName).join(' ')
-		
-		def writer = new StringWriter()
-		new MarkupBuilder(writer).html {
-			head {
-				title("$niceClassName - $niceTestName")
-				style(type:'text/css', """
-					tr.success {
-						background-color: #CFC;
-					}
-					
-					tr.failed {
-						background-color: #FCC;
-					}
-
-					table {
-						border: 1px solid black;
-					}
-
-					.screenshot {
-						max-width: 100%;
-					}
-				""")
-			}
-			body {
-				h1(niceClassName)
-				h2(niceTestName)
-				table {
-					tr {
-						th("Script")
-						th("Screenshot")
-						th("Duration (ms)")
-					}
-					
-					instance.executionResults.each { int line, ExecutionStepResult step ->
-						
-						def imageFilename = step.elementScreenshot
-						
-						if(step.when == "AFTER") {
-							tr(class:'success') {
-								td { pre(step.getSourceCode().trim()) }
-								td {
-									img(class:'screenshot', src:imageFilename)
-								}
-								td(step.duration)
-							}
-						} else {
-							tr(class:'failed') {
-								td { pre(step.getSourceCode().trim())
-									 pre(exceptionOccurrence.toString()) 
-								}
-								td {
-									img(class:'screenshot', src:failureImageFilename)
-								}
-								td(step.duration)
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		
-		File outputDir = new File("target/webdriver")
-		outputDir.mkdirs()
-		File f = new File("target/webdriver/$className-$testName"+".html")
-		f << writer.toString()
-		
-		if (exceptionOccurrence==null) {
-			println "Success:         $className $testName"
-		} else {
-			println "*** FAILED ***   $className $testName"
-			println "Please check output files at ${f.getCanonicalPath()}\n"
-		}
-		
-		
-		if (exceptionOccurrence!=null) {
-			throw exceptionOccurrence
-		}
+		instance.outputGenerator.generateOutput(exceptionOccurrence, failureImageFilename, instance.executionResults)
 		
 		return instance.executionResults
     }
+	
+	
 
 	/**
 	 * Private constructor, only invoked by static run method.
@@ -299,12 +216,6 @@ class WebDriverDsl {
 		}
 	}
 	
-	private static StackTraceElement discoverTestClassName(StackTraceElement[] stacktrace) {
-		stacktrace.find { 
-			it.getClassName().endsWith("Test") && it.getMethodName().startsWith("test")
-		}
-	}
-	
 	/**
 	* Get the location of an element on the page (using javascript).
 	* @param element element to locate
@@ -361,33 +272,53 @@ class WebDriverDsl {
 	   [x:splitForm[0],y:splitForm[1],width:splitForm[2],height:splitForm[3]]
    }
    
+	/**
+	 * Get a specific portion of a screenshot.
+	 * 
+	 * @param screenshotData
+	 * @param loc
+	 * @return
+	 */
    String getSubScreenshotData(String screenshotData, def loc) {
 	   byte[] sourceData = Base64.decodeBase64(screenshotData.getBytes())
 	   BufferedImage sourceImage = Sanselan.getBufferedImage(sourceData)
 	   
-	   BufferedImage region = crop(sourceImage, loc.x, loc.y, loc.width, loc.height)
-   	   //File f = File.createTempFile("webdriver-", ".png")
-	
-	   //Sanselan.writeImage region, f, ImageFormat.IMAGE_FORMAT_PNG, [:]
-	   //println f.getCanonicalPath()
+	   BufferedImage region = crop(sourceImage, 0, loc.y, sourceImage.getWidth(), loc.height)
+
 	   byte[] croppedBytes = Sanselan.writeImageToBytes(region, ImageFormat.IMAGE_FORMAT_PNG, [:])
 	   return new String(Base64.encodeBase64(croppedBytes))
    }
    
-   BufferedImage crop(BufferedImage image, int left, int top, int width, int height) {
+   	/**
+	 * Crop an image to surround a certain bounding box.
+	 * 
+	 * @param image
+	 * @param left
+	 * @param top
+	 * @param width
+	 * @param height
+	 * @return
+	 */
+	BufferedImage crop(BufferedImage image, int left, int top, int width, int height) {
 	   
-	   left = 0 //Math.max(0, left-50)
+	   left = Math.max(0, left-50)
 	   top = Math.max(0, top-50)
-	   width = image.getWidth() //Math.min(image.getWidth()-left, width+100)
+	   width = Math.min(image.getWidth()-left, width+100)
 	   height = Math.min(image.getHeight()-top, height+100)
 	   
 	   image.getSubimage(left, top, width, height)
    }
    
-   String saveImage(String base64PngImage) {
-	   new File("target/webdriver").mkdirs()
-	   File f = new File("target/webdriver/screenshot-"+new Random().nextLong()+".png")
-	   f << Base64.decodeBase64(base64PngImage.getBytes())
-	   f.getName()
+	/**
+	 * Save an image to file, and return the filename.
+	 * 
+	 * @param base64PngImage
+	 * @return
+	 */
+	String saveImage(String base64PngImage) {
+		new File("target/webdriver").mkdirs()
+		File f = new File("target/webdriver/screenshot-"+new Random().nextLong()+".png")
+		f << Base64.decodeBase64(base64PngImage.getBytes())
+		f.getName()
    }
 }

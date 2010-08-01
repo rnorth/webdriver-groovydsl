@@ -18,7 +18,7 @@ class UserActionsTest {
 
 	static Server server = new Server()
 
-	//@BeforeClass
+	@BeforeClass
 	static void startTestHarnessServer() {
 		WebAppContext context = new WebAppContext();
 		context.setContextPath("");
@@ -33,19 +33,19 @@ class UserActionsTest {
 		println "Test Harness Server started"
 	}
 
-	//@AfterClass
+	@AfterClass
 	static void stopTestHarnessServer() {
 		server.stop()
 	}
 
-    //@Test
+    @Test
     void testBasicDsl() {
         WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
         """
     }
 
-    //@Test
+    @Test
     void testTyping() {
 	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
@@ -53,7 +53,7 @@ class UserActionsTest {
         """
     }
 
-    //@Test
+    @Test
     void testTypingAndClick() {
 	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
@@ -62,7 +62,7 @@ class UserActionsTest {
         """
     }
 
-    //@Test
+    @Test
     void testTypingAndClickAndPageContains() {
 	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
@@ -72,7 +72,7 @@ class UserActionsTest {
         """
     }
 
-    //@Test
+    @Test
     void testClickLink() {
 	    WebDriverDsl.run """
            navigate to:'http://localhost:3001/app/welcome/view'
@@ -83,7 +83,7 @@ class UserActionsTest {
         """
     }
 
-    //@Test
+    @Test
     void testAfterPause() {
         long start = new Date().getTime()
         
@@ -95,7 +95,7 @@ class UserActionsTest {
         assert (end - start) > 5000
     }
 
-	//@Test
+	@Test
 	void testComboBox() {
 		WebDriverDsl.run """
 			navigate to:'http://localhost:3001/app/welcome/view'
@@ -109,7 +109,7 @@ class UserActionsTest {
 		"""
 	}
 
-	//@Test
+	@Test
 	void testGetLineNumbers() {
 		def result = WebDriverDsl.run("""
 			navigate to:'http://localhost:3001/app/welcome/view'
@@ -122,7 +122,7 @@ class UserActionsTest {
 		println result
 	}
 
-	//@Test
+	@Test
 	void testLocationNarrowingRightOf() {
 		WebDriverDsl.run """
 		   navigate to:'http://localhost:3001/app/welcome/view'
