@@ -132,6 +132,7 @@ class UserActionsTest {
 		   page contains:text('48', rightOf:text('Oranges'), below:text('2010'))
 		"""
 
+		println "Next failure message is deliberate unless an exception is thrown from the test itself - ignore!"
 		try {
 			WebDriverDsl.run """
 			   navigate to:'http://localhost:3001/app/welcome/view'
